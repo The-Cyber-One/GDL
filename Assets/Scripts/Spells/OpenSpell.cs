@@ -27,8 +27,8 @@ public class OpenSpell : MonoBehaviour
             }
             if (openTheDoor)
             {
-                doorLeft.transform.rotation = Quaternion.Lerp(doorLeft.transform.rotation, Quaternion.Euler(0, 90, 0), 0.001f);
-                doorRight.transform.rotation = Quaternion.Lerp(doorRight.transform.rotation, Quaternion.Euler(0, -90, 0), 0.001f);
+                doorLeft.transform.rotation = Quaternion.Lerp(doorLeft.transform.rotation, Quaternion.Euler(-90, 0, -120), 0.001f);
+                doorRight.transform.rotation = Quaternion.Lerp(doorRight.transform.rotation, Quaternion.Euler(-90, -0, 120), 0.001f);
             }
         }
     }
