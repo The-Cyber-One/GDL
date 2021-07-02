@@ -4,57 +4,67 @@ using UnityEngine;
 
 public class SpellResize : Spell
 {
-    Transform otherPlayer;
-    Transform root;
-    float initialSize, initialDistance, finalDistance;
-    public LayerMask NoObjectLayerMask;
+    Transform currentPlayer, otherPlayer;
+
+    public LayerMask targetMask, ignoreTargetMask;
+
+    float _originalScale, originalDistance;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
+    }
 
+    public void Setup(Transform _player, Transform _otherPlayer)
+    {
+        currentPlayer = _player;
     }
 
     // Update is called once per frame
     void Update()
     {
+        HandleInput();
+        ResizeRescaleOther();
+    }
+
+    void HandleInput()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(currentPlayer.transform.position, currentPlayer.transform.forward, out hit, Mathf.Infinity, targetMask))
+            {
+                otherPlayer = hit.transform;
+                otherPlayer.GetComponent<Rigidbody>().isKinematic = true;
+                _originalScale = otherPlayer.localScale.x;
+                originalDistance = Vector3.Distance(currentPlayer.transform.position, otherPlayer.transform.position);
+            }
+        }
         if (Input.GetMouseButtonUp(0) && otherPlayer != null)
         {
+            otherPlayer.GetComponent<Rigidbody>().isKinematic = false;
             otherPlayer = null;
         }
     }
 
-    void FixedUpdate()
+    void ResizeRescaleOther()
     {
         if (otherPlayer == null)
         {
             return;
         }
 
-        RaycastHit noObjectHit;
-        if (Physics.Raycast(root.transform.position, root.transform.forward, out noObjectHit, Mathf.Infinity, NoObjectLayerMask))
+        RaycastHit hit;
+        if (Physics.Raycast(currentPlayer.position, currentPlayer.transform.forward, out hit, Mathf.Infinity, ignoreTargetMask))
         {
-            var positionOffset = root.transform.forward * otherPlayer.localScale.x;
+            var positionOffset = currentPlayer.transform.forward * otherPlayer.transform.localScale.x;
 
-            otherPlayer.transform.position = noObjectHit.point - positionOffset;
+            otherPlayer.position = hit.point - positionOffset + new Vector3(0, otherPlayer.localScale.y, 0);
 
-            float distance = noObjectHit.distance;
-            float scaleMultiplier = distance / initialDistance;
+            float distance = Vector3.Distance(currentPlayer.transform.position, otherPlayer.transform.position);
+            float scaleMultiplier = distance / originalDistance;
 
-            otherPlayer.localScale = scaleMultiplier * initialSize * Vector3.one;
+            otherPlayer.localScale = scaleMultiplier * _originalScale * Vector3.one;
         }
-    }
-
-    void OnDisable()
-    {
-        otherPlayer = null;
-    }
-
-    public void EnableMe(RaycastHit hit)
-    {
-        otherPlayer = hit.transform;
-        root = hit.transform;
-        initialSize = otherPlayer.transform.localScale.x;
-        initialDistance = hit.distance;
     }
 }

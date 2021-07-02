@@ -8,8 +8,7 @@ public class SpellHandler : MonoBehaviour
     public List<Spell> spells;
     public ParticleSystem shootPS;
     public Transform playerEyes;
-    public string playerTag = "Player";
-    public LayerMask ObjectLayerMask;
+    string playerTag = "Player";
 
     Camera FPS;
 
@@ -32,14 +31,12 @@ public class SpellHandler : MonoBehaviour
         Vector3 rayOrigin = FPS.ViewportToScreenPoint(new Vector3(.5f, .5f, .0f));
 
         RaycastHit hit;
-        if (Physics.Raycast(playerEyes.transform.position, FPS.transform.forward, out hit, Mathf.Infinity, ObjectLayerMask))
+        if (Physics.Raycast(playerEyes.transform.position, FPS.transform.forward, out hit))
         {
-            Debug.DrawLine(playerEyes.transform.position, hit.point, Color.blue);
-
-            if (hit.transform.tag == playerTag)
+            if (hit.transform.tag == playerTag && activeSpell == null)
             {
                 activeSpell = spells[0];
-                (spells[0] as SpellResize).EnableMe(hit);
+                (spells[0] as SpellResize).Setup(playerEyes, hit.transform);
                 MakeActive();
             }
         }
