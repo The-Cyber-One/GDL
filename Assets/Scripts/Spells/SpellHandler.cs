@@ -28,8 +28,6 @@ public class SpellHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 rayOrigin = FPS.ViewportToScreenPoint(new Vector3(.5f, .5f, .0f));
-
         RaycastHit hit;
         if (Physics.Raycast(playerEyes.transform.position, FPS.transform.forward, out hit))
         {
