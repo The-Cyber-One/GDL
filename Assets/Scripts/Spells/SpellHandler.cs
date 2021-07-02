@@ -8,9 +8,9 @@ public class SpellHandler : MonoBehaviour
     public Spell activeSpell;
     public Spell[] spells;
     public bool[] unlocked;
-    public List<KeyCode> keyCodes;
     public KeyCode resize = KeyCode.Alpha1, open = KeyCode.Alpha2, lightSwitch = KeyCode.Alpha3;
 
+    List<KeyCode> keyCodes;
     Camera FPS;
 
     // Start is called before the first frame update
