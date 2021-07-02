@@ -10,12 +10,7 @@ public class MainMenu : MonoBehaviour
     public Color selectedColor;
     public Color normalColor;
     public Camera camera;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    public Animator animator;
 
     // Update is called once per frame
     void Update()
@@ -59,7 +54,7 @@ public class MainMenu : MonoBehaviour
         switch (name)
         {
             case "Play":
-                SceneManager.LoadSceneAsync("Level");
+                animator.SetTrigger("Fade");
                 break;
             case "Credits":
                 break;
@@ -67,5 +62,10 @@ public class MainMenu : MonoBehaviour
                 Application.Quit();
                 break;
         }
+    }
+
+    public void LoadLevel()
+    {
+        SceneManager.LoadScene("Level");
     }
 }
