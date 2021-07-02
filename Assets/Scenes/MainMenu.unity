@@ -744,9 +744,10 @@ GameObject:
   - component: {fileID: 367365556}
   - component: {fileID: 367365558}
   - component: {fileID: 367365557}
+  - component: {fileID: 367365559}
   m_Layer: 0
   m_Name: Text (TMP) (2)
-  m_TagString: Untagged
+  m_TagString: MenuButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -903,6 +904,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &367365559
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367365555}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 21.41882, y: 3.8914936, z: 0.00000007749399}
+  m_Center: {x: -1.1848913, y: -0.23335397, z: 0.00000015366976}
 --- !u!64 &411867126
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -998,9 +1012,10 @@ GameObject:
   - component: {fileID: 566778119}
   - component: {fileID: 566778121}
   - component: {fileID: 566778120}
+  - component: {fileID: 566778122}
   m_Layer: 0
   m_Name: Text (TMP) (1)
-  m_TagString: Untagged
+  m_TagString: MenuButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1053,8 +1068,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4287833996
-  m_fontColor: {r: 0.5481075, g: 0.15294118, b: 0.5764706, a: 1}
+    rgba: 4280624939
+  m_fontColor: {r: 0.16862746, g: 0.15294118, b: 0.14509805, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1157,6 +1172,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &566778122
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566778118}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 21.474682, y: 4.0625, z: 0.000000057263737}
+  m_Center: {x: -1.3475218, y: -0.31885743, z: 0.000008558301}
 --- !u!1 &576762826
 GameObject:
   m_ObjectHideFlags: 0
@@ -2375,10 +2403,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3817ae205c57f0c4bb7ee52f0ef62114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneNames:
-  - 
+  buttons:
+  - {fileID: 566778118}
+  - {fileID: 367365555}
+  - {fileID: 1186972929}
   selectedColor: {r: 0.54901963, g: 0.15294118, b: 0.5764706, a: 0}
   normalColor: {r: 0.16862746, g: 0.15294118, b: 0.14509805, a: 0}
+  camera: {fileID: 2007758552}
 --- !u!4 &1117010557
 Transform:
   m_ObjectHideFlags: 0
@@ -2423,9 +2454,10 @@ GameObject:
   - component: {fileID: 1186972930}
   - component: {fileID: 1186972932}
   - component: {fileID: 1186972931}
+  - component: {fileID: 1186972933}
   m_Layer: 0
   m_Name: Text (TMP) (3)
-  m_TagString: Untagged
+  m_TagString: MenuButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2582,6 +2614,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1186972933
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186972929}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 21.328035, y: 4.2821183, z: 0.00000006670036}
+  m_Center: {x: -1.3365433, y: -0.42866623, z: 0.0000075650096}
 --- !u!64 &1201888760
 MeshCollider:
   m_ObjectHideFlags: 0
