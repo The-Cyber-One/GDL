@@ -15,7 +15,7 @@ public class SpellResize : Spell
     {
     }
 
-    public void Setup(Transform _player, Transform _otherPlayer)
+    public void Setup(Transform _player)
     {
         currentPlayer = _player;
     }

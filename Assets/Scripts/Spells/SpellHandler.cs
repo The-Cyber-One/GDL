@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class SpellHandler : MonoBehaviour
 {
-    public Spell activeSpell;
-    public List<Spell> spells;
-    public ParticleSystem shootPS;
     public Transform playerEyes;
-    string playerTag = "Player";
+    public Spell activeSpell;
+    public Spell[] spells;
+    public bool[] unlocked;
+    public List<KeyCode> keyCodes;
+    public KeyCode resize = KeyCode.Alpha1, open = KeyCode.Alpha2, lightSwitch = KeyCode.Alpha3;
 
     Camera FPS;
 
@@ -17,10 +18,16 @@ public class SpellHandler : MonoBehaviour
     {
         FPS = playerEyes.GetComponent<Camera>();
 
+        spells = GetComponentsInChildren<Spell>();
         foreach (Spell spell in spells)
         {
-            spell.gameObject.SetActive(false);
+            spell.transform.gameObject.SetActive(false);
         }
+        unlocked = new bool[spells.Length];
+
+        keyCodes.Add(resize);
+        keyCodes.Add(open);
+        keyCodes.Add(lightSwitch);
 
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -28,20 +35,28 @@ public class SpellHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(playerEyes.transform.position, FPS.transform.forward, out hit))
+        for (int i = keyCodes.Count - 1; i >= 0; i--)
         {
-            if (hit.transform.tag == playerTag && activeSpell == null)
+            if (Input.GetKeyDown(keyCodes[i]) && unlocked[i])
             {
-                activeSpell = spells[0];
-                (spells[0] as SpellResize).Setup(playerEyes, hit.transform);
+                activeSpell = spells[i];
                 MakeActive();
+                switch (activeSpell)
+                {
+                    case SpellResize spellResize:
+                        (spells[i] as SpellResize).Setup(playerEyes);
+                        break;
+                    case OpenSpell openSpell:
+                        // (spells[i] as OpenSpell).Setup(playerEyes);
+                        break;
+                    case Darkness darkness:
+                        // (spells[i] as Darkness).Setup(playerEyes);
+                        break;
+                    default:
+                        Debug.Log("undefined spell");
+                        break;
+                }
             }
-        }
-        else
-        {
-            activeSpell = null;
-            MakeActive();
         }
     }
 
