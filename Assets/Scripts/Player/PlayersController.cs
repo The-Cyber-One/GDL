@@ -43,7 +43,8 @@ public class PlayersController : MonoBehaviour
     void SwitchState(int index, bool boolean)
     {
         players[index].GetComponentInChildren<Camera>().enabled = boolean;
-        players[index].GetComponent<PlayerMovement>().enabled = boolean;
+        players[index].GetComponentInChildren<CameraController>().enabled = boolean;
+        players[index].GetComponent<PlayerMovement>().canMove = boolean;
         players[index].GetComponentInChildren<AudioListener>().enabled = boolean;
     }
 }
