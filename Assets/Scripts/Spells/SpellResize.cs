@@ -24,15 +24,14 @@ public class SpellResize : Spell
             RaycastHit hit;
             if (Physics.Raycast(CurrentPlayer.transform.position, CurrentPlayer.transform.forward, out hit, Mathf.Infinity, targetMask))
             {
+                Debug.DrawLine(CurrentPlayer.transform.position, hit.point, Color.red);
                 otherPlayer = hit.transform;
-                // otherPlayer.GetComponent<Rigidbody>().isKinematic = true;
                 _originalScale = otherPlayer.localScale.x;
                 originalDistance = Vector3.Distance(CurrentPlayer.transform.position, otherPlayer.transform.position);
             }
         }
         if (Input.GetMouseButtonUp(0) && otherPlayer != null)
         {
-            // otherPlayer.GetComponent<Rigidbody>().isKinematic = false;
             otherPlayer = null;
         }
     }

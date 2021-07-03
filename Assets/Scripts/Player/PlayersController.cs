@@ -47,4 +47,17 @@ public class PlayersController : MonoBehaviour
         players[index].GetComponent<PlayerMovement>().canMove = boolean;
         players[index].GetComponentInChildren<AudioListener>().enabled = boolean;
     }
+
+    public Camera ActivePlayerCamera()
+    {
+        foreach (GameObject player in players)
+        {
+            Camera cam = player.GetComponentInChildren<Camera>(); //yikes!!!!!
+            if (cam.enabled)
+            {
+                return cam;
+            }
+        }
+        return null;
+    }
 }
