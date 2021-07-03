@@ -4,7 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - MenuButton
+=======
+  - Item
+  - Scroll
+>>>>>>> feature/PlayerPickUpItems
   layers:
   - Default
   - TransparentFX
