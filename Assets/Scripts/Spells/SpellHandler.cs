@@ -62,4 +62,16 @@ public class SpellHandler : MonoBehaviour
             }
         }
     }
+
+    public void UnlockNextSpell()
+    {
+        for (int i = 0; i < unlocked.Length; i++)
+        {
+            if (!unlocked[i])
+            {
+                unlocked[i] = true;
+                return;
+            }
+        }
+    }
 }
