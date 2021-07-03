@@ -7,6 +7,7 @@ public class PlayersController : MonoBehaviour
     private GameObject[] players;
     private int enabledPlayer = 0;
     Camera activeCamera;
+    public SpellHandler spellHandler;
 
     // Start is called before the first frame update
     void Start()
@@ -70,6 +71,8 @@ public class PlayersController : MonoBehaviour
         {
             ActiveCamera = cam;
         }
+
+        spellHandler.SpellSetup(players, cam);
     }
 
     public Camera ActiveCamera

@@ -223,11 +223,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!4 &169395595 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2022532113630227533, guid: 5c95210335d9ac24592a929f86640437, type: 3}
-  m_PrefabInstance: {fileID: 2035582675}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &183626134
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,13 +252,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f707a1ac7a4e44f81c116edbeb770c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resize: 49
-  open: 50
-  lightSwitch: 51
   playersController: {fileID: 286908465}
-  playerEyes: {fileID: 169395595}
   activeSpell: {fileID: 0}
-  spells: []
+  spells:
+  - {fileID: 322202083}
+  - {fileID: 1465417310}
+  - {fileID: 1761665089}
   unlocked: 
 --- !u!4 &183626136
 Transform:
@@ -423,6 +417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e0a75075ef00cf408607ba96561c00a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spellHandler: {fileID: 183626135}
 --- !u!1 &303931457
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,7 +626,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &322202082
 Transform:
   m_ObjectHideFlags: 0
@@ -658,6 +653,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a888fbffd25dd24a8b78b5ec18c3c17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spellColor:
+    serializedVersion: 2
+    key0: {r: 0.13725491, g: 0.74509805, b: 0.16862746, a: 1}
+    key1: {r: 0.13725491, g: 0.74509805, b: 0.16862746, a: 0}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
   targetMask:
     serializedVersion: 2
     m_Bits: 128
@@ -1286,7 +1310,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1465417309
 Transform:
   m_ObjectHideFlags: 0
@@ -1313,6 +1337,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd5ecec0b1dc1f24da969c35ddb7f216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spellColor:
+    serializedVersion: 2
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 1, g: 0, b: 0, a: 0}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
   doorRight: {fileID: 483724275}
   doorLeft: {fileID: 961351717}
 --- !u!4 &1559776444 stripped
@@ -1393,7 +1446,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1761665088
 Transform:
   m_ObjectHideFlags: 0
@@ -1420,6 +1473,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5de9f0a9a6c9e44495fcbc885474c87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spellColor:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
   lightsOffAnim: {fileID: 1141281096}
   lightSwitch: {fileID: 990109982}
 --- !u!1 &1875552370
@@ -1509,6 +1591,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 286908464}
     m_Modifications:
+    - target: {fileID: 377827880431245307, guid: 5c95210335d9ac24592a929f86640437, type: 3}
+      propertyPath: InitialModule.startColor.minMaxState
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2022532112546807558, guid: 5c95210335d9ac24592a929f86640437, type: 3}
       propertyPath: m_Name
       value: Player
