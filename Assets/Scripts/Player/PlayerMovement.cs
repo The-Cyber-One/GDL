@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Ground detection")]
     public float groundDistance = 0.1f;
+    public bool isGrounded;
     public Transform groundTransform;
     public LayerMask groundMask;
 
@@ -28,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool isGrounded = Physics.CheckSphere(groundTransform.position, groundDistance, groundMask);
+        isGrounded = Physics.CheckSphere(groundTransform.position, groundDistance, groundMask);
 
         if (canMove)
         {
