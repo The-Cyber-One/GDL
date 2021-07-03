@@ -10,6 +10,8 @@ public class SpellResize : Spell
 
     float _originalScale, originalDistance;
 
+    public Transform test;
+
     // Update is called once per frame
     void Update()
     {
@@ -48,13 +50,37 @@ public class SpellResize : Spell
         {
             var positionOffset = CurrentPlayer.transform.forward * otherPlayer.transform.localScale.x;
 
-            otherPlayer.position = hit.point - positionOffset + new Vector3(0, otherPlayer.localScale.y, 0);
+            otherPlayer.position = hit.point;
+            //do
+            //{
+            //    otherPlayer.position -= transform.forward * 0.1f;
 
             float distance = Vector3.Distance(CurrentPlayer.transform.position, otherPlayer.transform.position);
             float scaleMultiplier = distance / originalDistance;
 
             Vector3 scale = scaleMultiplier * _originalScale * Vector3.one;
             otherPlayer.localScale = scale;
+
+            while (Physics.OverlapBox(otherPlayer.position, (otherPlayer.Find("Top").transform.position - otherPlayer.Find("Bottom").transform.position) / 2, Quaternion.identity, LayerMask.NameToLayer("Player")).Length > 0)
+            {
+                Debug.Log("hoi");
+                otherPlayer.position -= CurrentPlayer.transform.forward * 0.1f;
+
+                test.localScale = (otherPlayer.Find("Top").transform.position - otherPlayer.Find("Bottom").transform.position);
+                test.position = otherPlayer.position;
+
+                distance = Vector3.Distance(CurrentPlayer.transform.position, otherPlayer.transform.position);
+                scaleMultiplier = distance / originalDistance;
+
+                scale = scaleMultiplier * _originalScale * Vector3.one;
+                otherPlayer.localScale = scale;
+            }
+            //    Debug.DrawLine(otherPlayer.position - otherPlayer.localScale / 2, otherPlayer.position + otherPlayer.localScale / 2);
+            //}
+            //while (Physics.CheckBox());
+            //Physics.OverlapBox
+
+
 
             //foreach (GameObject player in players)
             //{
