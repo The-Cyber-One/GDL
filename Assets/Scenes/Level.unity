@@ -228,6 +228,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2502658675017017068, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
+      propertyPath: doorLeft
+      value: 
+      objectReference: {fileID: 5668414259676477918}
+    - target: {fileID: 2502658675017017068, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
+      propertyPath: doorRight
+      value: 
+      objectReference: {fileID: 3016375869556228935}
+    - target: {fileID: 2502658675017017070, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2502658676449997092, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
       propertyPath: m_Name
       value: SpellHandler
@@ -14353,7 +14365,7 @@ GameObject:
   - component: {fileID: 983099002724773104}
   - component: {fileID: 3682320356322457069}
   - component: {fileID: 1998371747}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: biblioteca_suelo_volante
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16935,15 +16947,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2022532112546807675, guid: 5c95210335d9ac24592a929f86640437, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.572
+      value: 17.951
       objectReference: {fileID: 0}
     - target: {fileID: 2022532112546807675, guid: 5c95210335d9ac24592a929f86640437, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.96178913
+      value: 9.95
       objectReference: {fileID: 0}
     - target: {fileID: 2022532112546807675, guid: 5c95210335d9ac24592a929f86640437, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.683
+      value: 12.647
       objectReference: {fileID: 0}
     - target: {fileID: 2022532112546807675, guid: 5c95210335d9ac24592a929f86640437, type: 3}
       propertyPath: m_LocalRotation.w
@@ -21899,6 +21911,10 @@ PrefabInstance:
       propertyPath: itemBoxes.Array.data[2]
       value: 
       objectReference: {fileID: 1136939810}
+    - target: {fileID: 7504008137201083619, guid: 5c95210335d9ac24592a929f86640437, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c95210335d9ac24592a929f86640437, type: 3}
 --- !u!1 &1621018890665321575

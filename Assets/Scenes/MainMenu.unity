@@ -4399,7 +4399,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Wizard game
+  m_text: Wizised
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dfc5c93ebb3ee114c954659fcd965197, type: 2}
   m_sharedMaterial: {fileID: -7775133540989663178, guid: dfc5c93ebb3ee114c954659fcd965197, type: 2}
