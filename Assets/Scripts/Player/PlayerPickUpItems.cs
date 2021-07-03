@@ -46,9 +46,9 @@ public class PlayerPickUpItems : MonoBehaviour
                     break;
                 }
             }
-            if(item.gameObject.tag == "Scroll")
+            if(item.gameObject.CompareTag("Scroll"))
             {
-                //spellHandler.UnlockNextSpell();
+                spellHandler.UnlockNextSpell();
             }
 
             item.SetActive(false);
