@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
             controller.Move(movement * speed * Time.deltaTime);
         }
 
-        if (isGrounded && velocity.y <= 0)
+        if (Physics.CheckSphere(groundTransform.position, groundDistance, LayerMask.NameToLayer("Player")) && velocity.y <= 0)
         {
             velocity.y = -2f;
         }
