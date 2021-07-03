@@ -57,9 +57,13 @@ public class MainMenu : MonoBehaviour
                 animator.SetTrigger("Fade");
                 break;
             case "Credits":
+                animator.SetTrigger("CreditsIn");
                 break;
             case "Quit":
                 Application.Quit();
+                break;
+            case "Return":
+                animator.SetTrigger("CreditsOut");
                 break;
         }
     }
