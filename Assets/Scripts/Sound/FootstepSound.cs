@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class FootstepSound : MonoBehaviour
 { 
-    [SerializeField]
-    GameObject player;
 
     private Vector3 curPos,lastPos;
     private AudioSource ad;
@@ -16,7 +14,7 @@ public class FootstepSound : MonoBehaviour
 
     void Update()
     {
-        curPos = player.transform.position;
+        curPos = transform.position;
         if (curPos != lastPos)
         {
             if (!ad.isPlaying)
