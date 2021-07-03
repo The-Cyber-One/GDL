@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpellHandler : MonoBehaviour
 {
     public KeyCode resize = KeyCode.Alpha1, open = KeyCode.Alpha2, lightSwitch = KeyCode.Alpha3;
+    public PlayersController playersController;
     public Transform playerEyes;
     public Spell activeSpell;
     public Spell[] spells;
