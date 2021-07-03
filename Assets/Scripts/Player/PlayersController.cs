@@ -6,6 +6,7 @@ public class PlayersController : MonoBehaviour
 {
     private GameObject[] players;
     private int enabledPlayer = 0;
+    Camera activeCamera;
 
     // Start is called before the first frame update
     void Start()
@@ -42,22 +43,20 @@ public class PlayersController : MonoBehaviour
 
     void SwitchState(int index, bool boolean)
     {
-        players[index].GetComponentInChildren<Camera>().enabled = boolean;
+        Camera cam = players[index].GetComponentInChildren<Camera>();
+        cam.enabled = boolean;
         players[index].GetComponentInChildren<CameraController>().enabled = boolean;
         players[index].GetComponent<PlayerMovement>().canMove = boolean;
         players[index].GetComponentInChildren<AudioListener>().enabled = boolean;
+        if (boolean)
+        {
+            ActiveCamera = cam;
+        }
     }
 
-    public Camera ActivePlayerCamera()
+    public Camera ActiveCamera
     {
-        foreach (GameObject player in players)
-        {
-            Camera cam = player.GetComponentInChildren<Camera>(); //yikes!!!!!
-            if (cam.enabled)
-            {
-                return cam;
-            }
-        }
-        return null;
+        get { return activeCamera; }
+        set { activeCamera = value; }
     }
 }

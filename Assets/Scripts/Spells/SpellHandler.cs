@@ -32,7 +32,7 @@ public class SpellHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerEyes = playersController.ActivePlayerCamera();
+        playerEyes = playersController.ActiveCamera;
         foreach (Spell spell in spells)
         {
             if (activeSpell = spell)
