@@ -4,21 +4,11 @@ using UnityEngine;
 
 public class SpellResize : Spell
 {
-    Transform currentPlayer, otherPlayer;
+    Transform otherPlayer;
 
     public LayerMask targetMask, ignoreTargetMask;
 
     float _originalScale, originalDistance;
-
-    // Start is called before the first frame update
-    public void Start()
-    {
-    }
-
-    public void Setup(Transform _player)
-    {
-        currentPlayer = _player;
-    }
 
     // Update is called once per frame
     void Update()
@@ -32,12 +22,12 @@ public class SpellResize : Spell
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
-            if (Physics.Raycast(currentPlayer.transform.position, currentPlayer.transform.forward, out hit, Mathf.Infinity, targetMask))
+            if (Physics.Raycast(CurrentPlayer.transform.position, CurrentPlayer.transform.forward, out hit, Mathf.Infinity, targetMask))
             {
                 otherPlayer = hit.transform;
                 otherPlayer.GetComponent<Rigidbody>().isKinematic = true;
                 _originalScale = otherPlayer.localScale.x;
-                originalDistance = Vector3.Distance(currentPlayer.transform.position, otherPlayer.transform.position);
+                originalDistance = Vector3.Distance(CurrentPlayer.transform.position, otherPlayer.transform.position);
             }
         }
         if (Input.GetMouseButtonUp(0) && otherPlayer != null)
@@ -55,13 +45,13 @@ public class SpellResize : Spell
         }
 
         RaycastHit hit;
-        if (Physics.Raycast(currentPlayer.position, currentPlayer.transform.forward, out hit, Mathf.Infinity, ignoreTargetMask))
+        if (Physics.Raycast(CurrentPlayer.position, CurrentPlayer.transform.forward, out hit, Mathf.Infinity, ignoreTargetMask))
         {
-            var positionOffset = currentPlayer.transform.forward * otherPlayer.transform.localScale.x;
+            var positionOffset = CurrentPlayer.transform.forward * otherPlayer.transform.localScale.x;
 
             otherPlayer.position = hit.point - positionOffset + new Vector3(0, otherPlayer.localScale.y, 0);
 
-            float distance = Vector3.Distance(currentPlayer.transform.position, otherPlayer.transform.position);
+            float distance = Vector3.Distance(CurrentPlayer.transform.position, otherPlayer.transform.position);
             float scaleMultiplier = distance / originalDistance;
 
             otherPlayer.localScale = scaleMultiplier * _originalScale * Vector3.one;

@@ -8,18 +8,19 @@ public class OpenSpell : Spell
     public GameObject doorRight;
     public GameObject doorLeft;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.O))
+        if (Input.GetMouseButton(0))
         {
-            openTheDoor = true;
+            RaycastHit hit;
+            if (Physics.Raycast(CurrentPlayer.transform.position, CurrentPlayer.transform.forward, out hit, Mathf.Infinity))
+            {
+                if (hit.transform.gameObject == doorRight || hit.transform.gameObject == doorLeft)
+                {
+                    openTheDoor = true;
+                }
+            }
         }
         if (openTheDoor)
         {

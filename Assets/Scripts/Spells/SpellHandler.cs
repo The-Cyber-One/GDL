@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class SpellHandler : MonoBehaviour
 {
+    public KeyCode resize = KeyCode.Alpha1, open = KeyCode.Alpha2, lightSwitch = KeyCode.Alpha3;
     public Transform playerEyes;
     public Spell activeSpell;
     public Spell[] spells;
     public bool[] unlocked;
-    public KeyCode resize = KeyCode.Alpha1, open = KeyCode.Alpha2, lightSwitch = KeyCode.Alpha3;
 
     List<KeyCode> keyCodes;
     Camera FPS;
@@ -25,6 +25,7 @@ public class SpellHandler : MonoBehaviour
         }
         unlocked = new bool[spells.Length];
 
+        keyCodes = new List<KeyCode>();
         keyCodes.Add(resize);
         keyCodes.Add(open);
         keyCodes.Add(lightSwitch);
@@ -41,21 +42,7 @@ public class SpellHandler : MonoBehaviour
             {
                 activeSpell = spells[i];
                 MakeActive();
-                switch (activeSpell)
-                {
-                    case SpellResize spellResize:
-                        (spells[i] as SpellResize).Setup(playerEyes);
-                        break;
-                    case OpenSpell openSpell:
-                        // (spells[i] as OpenSpell).Setup(playerEyes);
-                        break;
-                    case Darkness darkness:
-                        // (spells[i] as Darkness).Setup(playerEyes);
-                        break;
-                    default:
-                        Debug.Log("undefined spell");
-                        break;
-                }
+                (spells[i] as Spell).Setup(playerEyes);
             }
         }
     }

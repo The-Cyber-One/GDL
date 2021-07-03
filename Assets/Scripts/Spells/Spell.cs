@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Spell : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    Transform currentPlayer;
+
+    public Transform CurrentPlayer
     {
-        
+        get { return currentPlayer; }
+        set { currentPlayer = value; }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Setup(Transform _player)
     {
-        
+        CurrentPlayer = _player;
     }
 }
