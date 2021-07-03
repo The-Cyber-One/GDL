@@ -7,6 +7,7 @@ public class SpellResize : Spell
     Transform otherPlayer;
 
     public LayerMask targetMask, ignoreTargetMask;
+    public Vector3 minScale = new Vector3(.3f, .3f, .3f), maxScale = new Vector3(5, 5, 5);
 
     float _originalScale, originalDistance;
     LayerMask _target1Mask, _target2Mask;
@@ -25,7 +26,6 @@ public class SpellResize : Spell
             RaycastHit hit;
             if (Physics.Raycast(CurrentPlayer.transform.position, CurrentPlayer.transform.forward, out hit, Mathf.Infinity, targetMask))
             {
-                Debug.Log(targetMask);
                 if (CurrentPlayer.transform.parent != hit.transform)
                 {
                     otherPlayer = hit.transform;
@@ -52,12 +52,23 @@ public class SpellResize : Spell
         {
             var positionOffset = CurrentPlayer.transform.forward * otherPlayer.transform.localScale.x;
 
-            otherPlayer.position = hit.point - positionOffset + new Vector3(0, otherPlayer.localScale.y, 0);
+            otherPlayer.position = hit.point - positionOffset;
 
             float distance = Vector3.Distance(CurrentPlayer.transform.position, otherPlayer.transform.position);
             float scaleMultiplier = distance / originalDistance;
 
             Vector3 scale = scaleMultiplier * _originalScale * Vector3.one;
+
+            //minmax
+            if (scale.x < minScale.x)
+            {
+                scale = minScale;
+            }
+            else if (scale.x > maxScale.x)
+            {
+                scale = maxScale;
+            }
+
             otherPlayer.localScale = scale;
 
             //foreach (GameObject player in players)
