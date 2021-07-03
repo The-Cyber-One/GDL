@@ -18,12 +18,13 @@ public class PlayerPickUpItems : MonoBehaviour
     bool playerHasCollisionItem;
     bool playerPicksUpItem;
 
+    int count;
     // Start is called before the first frame update
     void Start()
     {
         pickUp.enabled = false;
 
-        foreach(Image image in itemBoxes)
+        foreach (Image image in itemBoxes)
         {
             image.GetComponent<Image>();
             image.enabled = false;
@@ -37,7 +38,7 @@ public class PlayerPickUpItems : MonoBehaviour
         {
             itemImage = item.GetComponent<Image>();
 
-            foreach(Image image in itemBoxes)
+            foreach (Image image in itemBoxes)
             {
                 if (!image.enabled)
                 {
@@ -46,13 +47,14 @@ public class PlayerPickUpItems : MonoBehaviour
                     break;
                 }
             }
-            if(item.gameObject.tag == "Scroll")
+            if (item.gameObject.tag == "Scroll")
             {
                 //spellHandler.UnlockNextSpell();
             }
 
             item.SetActive(false);
-            pickUp.SetText("Press X to put away");
+            item = null;
+            pickUp.SetText("Press X to pick up");
             pickUp.enabled = false;
             playerPicksUpItem = false;
 
@@ -66,7 +68,7 @@ public class PlayerPickUpItems : MonoBehaviour
             item.transform.rotation *= Quaternion.Euler(0, 90, 75);
 
             item.transform.parent = transform;
-            pickUp.SetText("Press X to pick up");
+            pickUp.SetText("Press X to put away");
             playerPicksUpItem = true;
         }
     }
