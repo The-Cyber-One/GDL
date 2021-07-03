@@ -33,6 +33,7 @@ public class PlayerPickUpItems : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //If the player is already holding the item
         if (Input.GetKeyDown(KeyCode.X) && playerPicksUpItem)
         {
             itemImage = item.GetComponent<Image>();
@@ -52,11 +53,13 @@ public class PlayerPickUpItems : MonoBehaviour
             }
 
             item.SetActive(false);
-            pickUp.SetText("Press X to put away");
+            item = null;
+            pickUp.SetText("Press X to pick up");
             pickUp.enabled = false;
             playerPicksUpItem = false;
 
         }
+        //If the player wants to pick up the item
         else if (Input.GetKeyDown(KeyCode.X) && playerHasCollisionItem)
         {
             item.transform.position = new Vector3(transform.forward.x * 0.5f, transform.forward.y * -0.5f, 0) + transform.position;
@@ -65,8 +68,10 @@ public class PlayerPickUpItems : MonoBehaviour
 
             item.transform.rotation *= Quaternion.Euler(0, 90, 75);
 
+            item.transform.localScale = new Vector3(15,15,15);
+
             item.transform.parent = transform;
-            pickUp.SetText("Press X to pick up");
+            pickUp.SetText("Press X to put away");
             playerPicksUpItem = true;
         }
     }
@@ -77,6 +82,7 @@ public class PlayerPickUpItems : MonoBehaviour
             pickUp.enabled = true;
             item = other.gameObject;
             playerHasCollisionItem = true;
+            Debug.Log(item);
         }
 
     }
