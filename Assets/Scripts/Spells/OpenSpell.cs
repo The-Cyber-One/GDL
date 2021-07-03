@@ -2,34 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OpenSpell : MonoBehaviour
+public class OpenSpell : Spell
 {
-
-    public bool openSpellUnlocked;
     bool openTheDoor;
     public GameObject doorRight;
     public GameObject doorLeft;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if (openSpellUnlocked)
+        if (Input.GetMouseButton(0))
         {
-            if (Input.GetKeyDown(KeyCode.O))
+            RaycastHit hit;
+            if (Physics.Raycast(CurrentPlayer.transform.position, CurrentPlayer.transform.forward, out hit, Mathf.Infinity))
             {
-                openTheDoor = true;
+                if (hit.transform.gameObject == doorRight || hit.transform.gameObject == doorLeft)
+                {
+                    openTheDoor = true;
+                }
             }
-            if (openTheDoor)
-            {
-                doorLeft.transform.rotation = Quaternion.Lerp(doorLeft.transform.rotation, Quaternion.Euler(-90, 0, -120), 0.001f);
-                doorRight.transform.rotation = Quaternion.Lerp(doorRight.transform.rotation, Quaternion.Euler(-90, -0, 120), 0.001f);
-            }
+        }
+        if (openTheDoor)
+        {
+            doorLeft.transform.rotation = Quaternion.Lerp(doorLeft.transform.rotation, Quaternion.Euler(-90, 0, -120), 0.001f);
+            doorRight.transform.rotation = Quaternion.Lerp(doorRight.transform.rotation, Quaternion.Euler(-90, -0, 120), 0.001f);
         }
     }
 }
