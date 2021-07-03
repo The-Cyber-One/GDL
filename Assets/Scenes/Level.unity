@@ -244,6 +244,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpellHandler
       objectReference: {fileID: 0}
+    - target: {fileID: 2502658676449997093, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
+      propertyPath: spells.Array.data[1]
+      value: 
+      objectReference: {fileID: 640864928}
+    - target: {fileID: 2502658676449997093, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
+      propertyPath: spells.Array.data[2]
+      value: 
+      objectReference: {fileID: 1626895553}
     - target: {fileID: 2502658676449997098, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -3589,6 +3597,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3074755586061111656, guid: 2b4d5978d4f6f2b41bd84a73571a8a6c, type: 3}
+--- !u!114 &640864928 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2502658674777454835, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
+  m_PrefabInstance: {fileID: 24810285}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5de9f0a9a6c9e44495fcbc885474c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &641555792
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8805,6 +8824,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4602526445318957752, guid: 2b4d5978d4f6f2b41bd84a73571a8a6c, type: 3}
+--- !u!114 &1626895553 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2502658675017017068, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
+  m_PrefabInstance: {fileID: 24810285}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd5ecec0b1dc1f24da969c35ddb7f216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &1629374674
 MeshCollider:
   m_ObjectHideFlags: 0
