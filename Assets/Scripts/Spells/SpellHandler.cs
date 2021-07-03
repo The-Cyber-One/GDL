@@ -11,12 +11,10 @@ public class SpellHandler : MonoBehaviour
 
     KeyCode resize = KeyCode.Alpha1, open = KeyCode.Alpha2, lightSwitch = KeyCode.Alpha3;
     List<KeyCode> keyCodes;
-    public Camera playerEyes;
 
     // Start is called before the first frame update
     void Start()
     {
-        spells = GetComponentsInChildren<Spell>();
         foreach (Spell spell in spells)
         {
             spell.transform.gameObject.SetActive(false);
@@ -27,26 +25,29 @@ public class SpellHandler : MonoBehaviour
         keyCodes.Add(resize);
         keyCodes.Add(open);
         keyCodes.Add(lightSwitch);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerEyes = playersController.ActiveCamera;
-        foreach (Spell spell in spells)
-        {
-            if (activeSpell = spell)
-            {
-                spell.Setup(playerEyes.transform);
-            }
-        }
-
         for (int i = keyCodes.Count - 1; i >= 0; i--)
         {
             if (Input.GetKeyDown(keyCodes[i]) && unlocked[i])
             {
                 activeSpell = spells[i];
                 MakeActive();
+            }
+        }
+    }
+
+    public void SpellSetup(GameObject[] players, Camera cam)
+    {
+        foreach (Spell spell in spells)
+        {
+            if (activeSpell = spell)
+            {
+                spell.Setup(cam.transform, players);
             }
         }
     }

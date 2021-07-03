@@ -57,7 +57,15 @@ public class SpellResize : Spell
             float distance = Vector3.Distance(CurrentPlayer.transform.position, otherPlayer.transform.position);
             float scaleMultiplier = distance / originalDistance;
 
-            otherPlayer.localScale = scaleMultiplier * _originalScale * Vector3.one;
+            Vector3 scale = scaleMultiplier * _originalScale * Vector3.one;
+            otherPlayer.localScale = scale;
+
+            //foreach (GameObject player in players)
+            //{
+            //    player.transform.Find("MagicLight").GetComponent<Light>().range = scale.x;
+            //    var main = player.transform.Find("ShootParticle").GetComponent<ParticleSystem>().main;
+            //    main.startSize = scale.x;
+            //}
         }
     }
 }
