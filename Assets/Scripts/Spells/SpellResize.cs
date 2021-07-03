@@ -50,9 +50,19 @@ public class SpellResize : Spell
         RaycastHit hit;
         if (Physics.Raycast(CurrentPlayer.position, CurrentPlayer.transform.forward, out hit, Mathf.Infinity, ignoreTargetMask))
         {
+            float offset;
+            if (CurrentPlayer.GetComponentInChildren<Camera>().transform.rotation.x < 0)
+            {
+                offset = 0;
+            }
+            else
+            {
+                offset = otherPlayer.transform.localScale.y;
+            }
+
             var positionOffset = CurrentPlayer.transform.forward * otherPlayer.transform.localScale.x;
 
-            otherPlayer.position = hit.point - positionOffset;
+            otherPlayer.position = hit.point - positionOffset + new Vector3(0, offset, 0);
 
             float distance = Vector3.Distance(CurrentPlayer.transform.position, otherPlayer.transform.position);
             float scaleMultiplier = distance / originalDistance;
