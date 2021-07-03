@@ -21,8 +21,8 @@ public class FootstepSound : MonoBehaviour
         {
             if (!ad.isPlaying)
             {
-                ad.volume = Random.Range(0.8f, 1);
-                ad.pitch = Random.Range(0.8f, 1.1f);
+                ad.volume = Random.Range(0.6f, 0.8f);
+                ad.pitch = Random.Range(1, 1.2f);
                 ad.Play();
             }
         }
