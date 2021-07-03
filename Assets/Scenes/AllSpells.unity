@@ -257,14 +257,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f707a1ac7a4e44f81c116edbeb770c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resize: 49
-  open: 50
-  lightSwitch: 51
   playersController: {fileID: 286908465}
-  playerEyes: {fileID: 169395595}
   activeSpell: {fileID: 0}
   spells: []
   unlocked: 
+  playerEyes: {fileID: 169395595}
 --- !u!4 &183626136
 Transform:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ public class Spell : MonoBehaviour
         set { currentPlayer = value; }
     }
 
-    public void Setup(Transform _player)
+    public virtual void Setup(Transform _player)
     {
         CurrentPlayer = _player;
     }
