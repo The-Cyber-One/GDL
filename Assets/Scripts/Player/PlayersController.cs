@@ -7,6 +7,7 @@ public class PlayersController : MonoBehaviour
     private GameObject[] players;
     private int enabledPlayer = 0;
     Camera activeCamera;
+    public SpellHandler spellHandler;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +46,24 @@ public class PlayersController : MonoBehaviour
     {
         Camera cam = players[index].GetComponentInChildren<Camera>();
         cam.enabled = boolean;
+
+        Transform wizard = players[index].transform.Find("Wizard");
+        foreach (Transform transform in wizard)
+        {
+            if (boolean)
+            {
+                transform.gameObject.layer = LayerMask.NameToLayer("TransparentFX");
+            }
+            else
+            {
+                transform.gameObject.layer = LayerMask.NameToLayer("Player");
+            }
+        }
+        foreach (Transform transform in wizard.Find("Staff"))
+        {
+            transform.gameObject.layer = LayerMask.NameToLayer("Player");
+        }
+
         players[index].GetComponentInChildren<CameraController>().enabled = boolean;
         players[index].GetComponent<PlayerMovement>().canMove = boolean;
         players[index].GetComponentInChildren<AudioListener>().enabled = boolean;
@@ -52,6 +71,8 @@ public class PlayersController : MonoBehaviour
         {
             ActiveCamera = cam;
         }
+
+        spellHandler.SpellSetup(players, cam);
     }
 
     public Camera ActiveCamera
