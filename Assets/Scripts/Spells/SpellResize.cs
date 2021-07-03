@@ -9,6 +9,7 @@ public class SpellResize : Spell
     public LayerMask targetMask, ignoreTargetMask;
 
     float _originalScale, originalDistance;
+    LayerMask _target1Mask, _target2Mask;
 
     // Update is called once per frame
     void Update()
@@ -24,6 +25,7 @@ public class SpellResize : Spell
             RaycastHit hit;
             if (Physics.Raycast(CurrentPlayer.transform.position, CurrentPlayer.transform.forward, out hit, Mathf.Infinity, targetMask))
             {
+                Debug.Log(targetMask);
                 if (CurrentPlayer.transform.parent != hit.transform)
                 {
                     otherPlayer = hit.transform;
