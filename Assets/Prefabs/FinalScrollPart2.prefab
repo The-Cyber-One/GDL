@@ -98,13 +98,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Open:
+  m_text: 'Open Spell 2/2
+
+    Select by pressing 3
 
     ...
 
-    Klik this button
-
-'
+    Open Sesame'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dff283059fd78dd4c97b09a1d0c37bf0, type: 2}
   m_sharedMaterial: {fileID: -2163539683803483622, guid: dff283059fd78dd4c97b09a1d0c37bf0, type: 2}
@@ -131,8 +131,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.1
-  m_fontSizeBase: 0.1
+  m_fontSize: 0.12
+  m_fontSizeBase: 0.12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -189,9 +189,10 @@ GameObject:
   - component: {fileID: 6195565288823964983}
   - component: {fileID: 2902616012336654021}
   - component: {fileID: 1767805419672888512}
+  - component: {fileID: 587126546}
   m_Layer: 0
   m_Name: FinalScrollPart2
-  m_TagString: Untagged
+  m_TagString: Scroll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -305,6 +306,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!65 &587126546
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5691403953501660386}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.06, y: 0.02, z: 0.05}
+  m_Center: {x: 0.00012050476, y: 0.0013692048, z: -0.00000015227124}
 --- !u!1 &6498970403161755372
 GameObject:
   m_ObjectHideFlags: 0

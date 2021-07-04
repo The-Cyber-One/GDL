@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.0030908585, y: 0.0005}
-  m_SizeDelta: {x: 0.1, y: 0.1}
+  m_SizeDelta: {x: 0.12, y: 0.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &6005214530537834530
 MeshRenderer:
@@ -98,11 +98,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Open:
+  m_text: 'Open Spell 1/2
 
-    Open any lockt object or door
+    ...
 
-    ...'
+    Only in the darkness can you see the magic
+    of the stars
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dff283059fd78dd4c97b09a1d0c37bf0, type: 2}
   m_sharedMaterial: {fileID: -2163539683803483622, guid: dff283059fd78dd4c97b09a1d0c37bf0, type: 2}
@@ -129,8 +132,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.1
-  m_fontSizeBase: 0.1
+  m_fontSize: 0.11
+  m_fontSizeBase: 0.11
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -187,9 +190,10 @@ GameObject:
   - component: {fileID: 4942519643561202065}
   - component: {fileID: 71638716882449176}
   - component: {fileID: 6440491412339005338}
+  - component: {fileID: 191882972}
   m_Layer: 0
   m_Name: FinalScrollPart1
-  m_TagString: Untagged
+  m_TagString: FinalScrollPart1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -302,6 +306,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!65 &191882972
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6888157901697101892}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.06, y: 0.04, z: 0.05}
+  m_Center: {x: 0.00012050476, y: 0.02, z: -0.00000015227124}
 --- !u!1 &7261565321463277463
 GameObject:
   m_ObjectHideFlags: 0

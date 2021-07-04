@@ -111,9 +111,10 @@ GameObject:
   - component: {fileID: 3397184306898254937}
   - component: {fileID: 1978538228122493214}
   - component: {fileID: 6960649313053727428}
+  - component: {fileID: 544533968}
   m_Layer: 0
   m_Name: ScrollOfResize
-  m_TagString: Untagged
+  m_TagString: Scroll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,13 +128,13 @@ RectTransform:
   m_GameObject: {fileID: 3757626415787023756}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 10.429}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children:
   - {fileID: 4099591233000445155}
   - {fileID: 7024610387902741952}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 13.543, y: 0.968}
@@ -216,7 +217,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5cffe449ef7507844abbf21171a28d35, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9ae60b8efc0ea274497be4ab701172a8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -226,6 +227,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!65 &544533968
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3757626415787023756}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.06, y: 0.02, z: 0.05}
+  m_Center: {x: 0.00012050476, y: 0.0013692048, z: -0.00000015227124}
 --- !u!1 &4099591233000445152
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,16 +338,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Resize:
-
-    Change the size of another human
-
-
-
-    Drag and hold the
-    mouse button, while holding another human, to use
-
-'
+  m_text: "Resize Spell\nSelect by pressing 1\n...\n( Also handy for \ndifficult
+    movement )"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dff283059fd78dd4c97b09a1d0c37bf0, type: 2}
   m_sharedMaterial: {fileID: -2163539683803483622, guid: dff283059fd78dd4c97b09a1d0c37bf0, type: 2}
