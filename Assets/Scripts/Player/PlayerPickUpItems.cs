@@ -12,6 +12,7 @@ public class PlayerPickUpItems : MonoBehaviour
     Image itemImage;
 
     public Animator bookcaseAnimator;
+    public GameObject cheeseDetector;
 
     public SpellHandler spellHandler;
 
@@ -65,6 +66,7 @@ public class PlayerPickUpItems : MonoBehaviour
             else
             {
                 bookcaseAnimator.SetTrigger("Move");
+                cheeseDetector.SetActive(true);
             }
 
             item.SetActive(false);
