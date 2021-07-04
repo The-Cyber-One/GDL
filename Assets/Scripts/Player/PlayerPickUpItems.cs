@@ -85,7 +85,7 @@ public class PlayerPickUpItems : MonoBehaviour
 
             item.transform.Rotate(new Vector3(0, 90, 90));
 
-            item.transform.parent = transform;
+            item.transform.SetParent(transform);
             pickUp.SetText("Press X to put away");
             playerPicksUpItem = true;
         }
