@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
     public float sensitivity = 100f;
     public Transform playerBody;
     float xRotation = 0f;
-    public bool rotating;
+    public bool isLooking;
 
     // Start is called before the first frame update
     private void Start()
@@ -25,7 +25,7 @@ public class CameraController : MonoBehaviour
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        rotating = mouseX != 0 || mouseY != 0;
+        isLooking = mouseX != 0 || mouseY != 0;
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);

@@ -223,6 +223,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &151589253 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2022532112546807558, guid: 5c95210335d9ac24592a929f86640437, type: 3}
+  m_PrefabInstance: {fileID: 2035582675}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &151589260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151589253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3467eb9ec04ae6849837621f3bc7ff72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  concentrate: 0
 --- !u!1 &183626134
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,8 +274,8 @@ MonoBehaviour:
   activeSpell: {fileID: 0}
   spells:
   - {fileID: 322202083}
-  - {fileID: 1465417310}
   - {fileID: 1761665089}
+  - {fileID: 1465417310}
   unlocked: 
 --- !u!4 &183626136
 Transform:
@@ -418,6 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e0a75075ef00cf408607ba96561c00a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  players: []
   spellHandler: {fileID: 183626135}
 --- !u!1 &303931457
 GameObject:
@@ -1208,6 +1227,24 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 3867307052286895072, guid: ecfe9f5d873d9fb4aad80c155aa14077, type: 3}
   m_PrefabInstance: {fileID: 1647347818}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1288884099 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2022532112546807558, guid: 5c95210335d9ac24592a929f86640437, type: 3}
+  m_PrefabInstance: {fileID: 493816416}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1288884106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288884099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3467eb9ec04ae6849837621f3bc7ff72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  concentrate: 0
 --- !u!1 &1328312049
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,7 +1643,6 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   lightsOffAnim: {fileID: 1141281096}
-  lightSwitch: {fileID: 990109982}
 --- !u!1 &1875552370
 GameObject:
   m_ObjectHideFlags: 0
