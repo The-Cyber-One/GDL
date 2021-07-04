@@ -18,15 +18,18 @@ public class WaterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool growing = false;
+        if (bucket.colliding)
+        {
+            growing =
+                bucket.colliding &&
+                bucket.other.CompareTag("Player") &&
+                bucket.other.transform.localScale.x >= playerSizeMin &&
+                bucket.other.transform.localScale.x <= playerSizeMax;
 
-        bool growing =
-            bucket.colliding && 
-            bucket.other.CompareTag("Player") && 
-            bucket.other.transform.localScale.x >= playerSizeMin && 
-            bucket.other.transform.localScale.x <= playerSizeMax;
+            Debug.Log(bucket.other.transform.localScale);
 
-        Debug.Log(bucket.other.transform.localScale);
-
-        animator.SetBool("Growing", growing);
+            animator.SetBool("Growing", growing);
+        }
     }
 }

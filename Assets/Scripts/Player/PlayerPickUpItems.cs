@@ -23,7 +23,7 @@ public class PlayerPickUpItems : MonoBehaviour
     {
         pickUp.enabled = false;
 
-        foreach(Image image in itemBoxes)
+        foreach (Image image in itemBoxes)
         {
             image.GetComponent<Image>();
             image.enabled = false;
@@ -33,12 +33,59 @@ public class PlayerPickUpItems : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (item != null)
+        {
+            if (item.gameObject.CompareTag("Scroll") || item.gameObject.CompareTag("FinalScrollPart1"))
+            {
+                HandleScrolls();
+            }
+            else
+            {
+                HandleItem();
+            }
+        }
+
+    }
+    private void HandleItem()
+    {
+        //If the player is already holding the item
+        if (Input.GetKeyDown(KeyCode.X) && playerPicksUpItem)
+        {
+            item.transform.position = new Vector3(transform.forward.x * 0.6f, transform.forward.y * -10f, transform.forward.z * 0.6f) + transform.position;
+            item.transform.position = new Vector3(item.transform.position.x, 0, item.transform.position.z);
+
+            pickUp.SetText("Press X to pick up");
+            playerPicksUpItem = false;
+            item.transform.parent = null;
+            item = null;
+            playerHasCollisionItem = false;
+            pickUp.enabled = false;
+            playerHasCollisionItem = false;
+        }
+        //If the player wants to pick up the item
+        else if (Input.GetKeyDown(KeyCode.X) && playerHasCollisionItem)
+        {
+            item.transform.position = new Vector3(transform.forward.x * 0.6f, transform.forward.y * -2f, transform.forward.z * 0.6f) + transform.position;
+
+            item.transform.LookAt(transform.position);
+
+            item.transform.rotation *= Quaternion.Euler(-90, 0, 0);
+
+            item.transform.parent = transform;
+            pickUp.SetText("Press X to release");
+            playerPicksUpItem = true;
+
+            Debug.Log("PickUp");
+        }
+    }
+    private void HandleScrolls()
+    {
         //If the player is already holding the item
         if (Input.GetKeyDown(KeyCode.X) && playerPicksUpItem)
         {
             itemImage = item.GetComponent<Image>();
 
-            foreach(Image image in itemBoxes)
+            foreach (Image image in itemBoxes)
             {
                 if (!image.enabled)
                 {
@@ -47,7 +94,7 @@ public class PlayerPickUpItems : MonoBehaviour
                     break;
                 }
             }
-            if(item.gameObject.CompareTag("Scroll"))
+            if (!item.gameObject.CompareTag("FinalScrollPart1"))
             {
                 spellHandler.UnlockNextSpell();
             }
@@ -68,7 +115,7 @@ public class PlayerPickUpItems : MonoBehaviour
 
             item.transform.rotation *= Quaternion.Euler(0, 90, 75);
 
-            item.transform.localScale = new Vector3(15,15,15);
+            item.transform.localScale = new Vector3(15, 15, 15);
 
             item.transform.parent = transform;
             pickUp.SetText("Press X to put away");
@@ -77,12 +124,11 @@ public class PlayerPickUpItems : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Scroll" || other.gameObject.tag == "FinalScrollPart1")
+        if (other.gameObject.tag == "Scroll" || other.gameObject.tag == "FinalScrollPart1" || other.gameObject.tag == "Item")
         {
             pickUp.enabled = true;
             item = other.gameObject;
             playerHasCollisionItem = true;
-            Debug.Log(item);
         }
 
     }
