@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
     public GameObject[] buttons;
     public Color selectedColor;
     public Color normalColor;
-    public Camera camera;
+    public new Camera camera;
     public Animator animator;
 
     // Update is called once per frame

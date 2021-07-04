@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaterController : MonoBehaviour
 {
-    public TriggerChecker bucket;
+    public CollisionChecker bucket;
     public float playerSizeMin, playerSizeMax;
 
     private Animator animator;
@@ -19,15 +19,15 @@ public class WaterController : MonoBehaviour
     void Update()
     {
         bool growing = false;
-        if (bucket.colliding)
+        if (bucket.trigger)
         {
             growing =
-                bucket.colliding &&
-                bucket.other.CompareTag("Player") &&
-                bucket.other.transform.localScale.x >= playerSizeMin &&
-                bucket.other.transform.localScale.x <= playerSizeMax;
+                bucket.trigger &&
+                bucket.otherTrigger.CompareTag("Player") &&
+                bucket.otherTrigger.transform.localScale.x >= playerSizeMin &&
+                bucket.otherTrigger.transform.localScale.x <= playerSizeMax;
 
-            Debug.Log(bucket.other.transform.localScale);
+            Debug.Log(bucket.otherTrigger.transform.localScale);
 
             animator.SetBool("Growing", growing);
         }

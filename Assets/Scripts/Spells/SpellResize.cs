@@ -8,6 +8,7 @@ public class SpellResize : Spell
 
     public LayerMask targetMask, ignoreTargetMask;
     public float minScalePlayer = 0.1f, maxScalePlayer = 3f, minScaleObject = 0.1f, maxScaleObject = 10f;
+    public bool movingCheese = false;
 
     float _originalScale, originalDistance;
 
@@ -37,7 +38,9 @@ public class SpellResize : Spell
                 else
                 {
                     otherPlayer.GetComponent<Rigidbody>().isKinematic = true;
+                    movingCheese = true;
                 }
+
             }
         }
         if (Input.GetMouseButtonUp(0) && otherPlayer != null)
@@ -49,6 +52,7 @@ public class SpellResize : Spell
             else
             {
                 otherPlayer.GetComponent<Rigidbody>().isKinematic = false;
+                movingCheese = false;
             }
             otherPlayer = null;
         }
