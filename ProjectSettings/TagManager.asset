@@ -8,6 +8,7 @@ TagManager:
   - MenuButton
   - FinalScrollPart1
   - Scroll
+  - Floor
   layers:
   - Default
   - TransparentFX
