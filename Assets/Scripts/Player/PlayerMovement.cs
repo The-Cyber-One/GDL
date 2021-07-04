@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5f;
     public float jumpHeight = 1f;
+    public float maxHeight = 2;
     public float gravity = -9.81f;
     public bool useGravity = true;
 
@@ -31,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        jumpHeight = maxHeight * transform.localScale.x / 3;
+
         Collider[] colliders = Physics.OverlapSphere(groundTransform.position, groundDistance);
 
         bool foundFloor = false;

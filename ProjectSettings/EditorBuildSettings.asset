@@ -9,18 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: f3c030f8c50fca545b686ef22d480b4e
   - enabled: 1
-    path: Assets/Scenes/LevelWithExitFade.unity
+    path: Assets/Scenes/Level.unity
     guid: e011265b5fce15749bc2177a21c8a259
   - enabled: 1
     path: Assets/Scenes/EndScreen.unity
     guid: 9d263dd04c01c0348af4667e1a1aef40
-<<<<<<< HEAD
-=======
-  - enabled: 1
-    path: Assets/Scenes/Level.unity
-    guid: 44701c9a685fb4f42a3ac1d3ee39a782
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
->>>>>>> origin/feature/spells/darkness
   m_configObjects: {}

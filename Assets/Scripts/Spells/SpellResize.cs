@@ -68,7 +68,7 @@ public class SpellResize : Spell
         RaycastHit hit;
         if (Physics.Raycast(CurrentPlayer.position, CurrentPlayer.transform.forward, out hit, Mathf.Infinity, ignoreTargetMask))
         {
-            Debug.Log(LayerMask.LayerToName(hit.transform.gameObject.layer));
+            //Debug.Log(LayerMask.LayerToName(hit.transform.gameObject.layer));
             otherPlayer.position = hit.point;
 
             ReScale();

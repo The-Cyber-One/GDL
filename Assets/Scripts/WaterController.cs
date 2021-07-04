@@ -10,6 +10,8 @@ public class WaterController : MonoBehaviour
     private Animator animator;
     public AudioSource soundEffectWater;
 
+    bool hasPlayed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,26 +22,19 @@ public class WaterController : MonoBehaviour
     void Update()
     {
         bool growing = false;
-        if (bucket.trigger)
+        if (bucket.trigger && !hasPlayed)
         {
             growing =
-                bucket.trigger &&
                 bucket.otherTrigger.CompareTag("Player") &&
                 bucket.otherTrigger.transform.localScale.x >= playerSizeMin &&
                 bucket.otherTrigger.transform.localScale.x <= playerSizeMax;
 
             if (growing)
             {
+                hasPlayed = true;
+                animator.SetBool("Growing", true);
                 soundEffectWater.Play();
             }
-            else
-            {
-                soundEffectWater.Stop();
-            }
-
-            Debug.Log(bucket.otherTrigger.transform.localScale);
-
-            animator.SetBool("Growing", growing);
         }
     }
 
