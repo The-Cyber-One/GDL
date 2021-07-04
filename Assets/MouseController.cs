@@ -10,7 +10,6 @@ public class MouseController : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log(other.name);
         if(other.tag == "Cheese")
         {
             if (other.transform.localScale.x >= minCheeseSize)

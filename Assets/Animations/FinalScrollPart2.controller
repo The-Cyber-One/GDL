@@ -7,8 +7,8 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SpellOff
-  m_Speed: 1
+  m_Name: SpellOn
+  m_Speed: -1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -152838910307830080}
@@ -21,7 +21,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 5d5a812a196ca7c45b017c9d38af7f55, type: 2}
+  m_Motion: {fileID: 7400000, guid: ccc65f4c7beb2584e90be57672c79be2, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -60,7 +60,7 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
+  - m_ConditionMode: 2
     m_ConditionEvent: concentrating
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
@@ -113,7 +113,7 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
+  - m_ConditionMode: 1
     m_ConditionEvent: concentrating
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
@@ -164,8 +164,8 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SpellOn
-  m_Speed: -1
+  m_Name: SpellOff
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 2823530243356020344}
@@ -246,7 +246,7 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
+  - m_ConditionMode: 1
     m_ConditionEvent: concentrating
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
