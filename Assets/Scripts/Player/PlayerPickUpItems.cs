@@ -12,6 +12,7 @@ public class PlayerPickUpItems : MonoBehaviour
     Image itemImage;
 
     public Animator bookcaseAnimator;
+    public AudioSource soundEffectBookCase;
     public GameObject cheeseDetector;
 
     public SpellHandler spellHandler;
@@ -66,6 +67,7 @@ public class PlayerPickUpItems : MonoBehaviour
             {
                 bookcaseAnimator.SetTrigger("Move");
                 cheeseDetector.SetActive(true);
+                soundEffectBookCase.PlayDelayed(0.1f);
             }
 
             item.SetActive(false);

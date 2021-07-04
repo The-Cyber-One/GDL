@@ -8,6 +8,7 @@ public class WaterController : MonoBehaviour
     public float playerSizeMin, playerSizeMax;
 
     private Animator animator;
+    public AudioSource soundEffectWater;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,15 @@ public class WaterController : MonoBehaviour
                 bucket.otherTrigger.CompareTag("Player") &&
                 bucket.otherTrigger.transform.localScale.x >= playerSizeMin &&
                 bucket.otherTrigger.transform.localScale.x <= playerSizeMax;
+
+            if (growing)
+            {
+                soundEffectWater.Play();
+            }
+            else
+            {
+                soundEffectWater.Stop();
+            }
 
             Debug.Log(bucket.otherTrigger.transform.localScale);
 
