@@ -54,6 +54,10 @@ public class SpellHandler : MonoBehaviour
         }
 
         darknessSpell.lightsOffAnim.SetBool("concentrating", anyConcentrating);
+        if (darknessSpell.scrollLight.gameObject.activeInHierarchy)
+        {
+            darknessSpell.scrollLight.SetBool("concentrating", anyConcentrating);
+        }
     }
 
     public void SpellSetup(GameObject[] players, Camera cam)
