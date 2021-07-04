@@ -3220,15 +3220,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4099591233000445154, guid: fd3ef256d81f47142942a9bc1367b160, type: 3}
       propertyPath: m_text
-      value: 'Resize:
-
-        Change the size of another human
-
-
-        Select
-        by pressing 1
-
-'
+      value: "Resize Spell\nSelect by pressing 1\n...\n( Also handy for \ndifficult
+        movement )"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4099591233000445154, guid: fd3ef256d81f47142942a9bc1367b160, type: 3}
+      propertyPath: m_fontSize
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4099591233000445154, guid: fd3ef256d81f47142942a9bc1367b160, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4570614845600974646, guid: fd3ef256d81f47142942a9bc1367b160, type: 3}
       propertyPath: m_RootOrder
@@ -3668,13 +3669,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4772272355408785951, guid: 906603e299e4c6d4eb1099d4d51ce0dc, type: 3}
       propertyPath: m_text
-      value: 'Open:
+      value: 'Open Spell 2/2
+
+        Select by pressing 3
 
         ...
 
-        Klik the number 3
-
-'
+        Open
+        Sesame'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4772272355408785951, guid: 906603e299e4c6d4eb1099d4d51ce0dc, type: 3}
+      propertyPath: m_fontSize
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4772272355408785951, guid: 906603e299e4c6d4eb1099d4d51ce0dc, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 5021580729134890584, guid: 906603e299e4c6d4eb1099d4d51ce0dc, type: 3}
       propertyPath: m_RootOrder
@@ -3738,7 +3748,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5691403953501660386, guid: 906603e299e4c6d4eb1099d4d51ce0dc, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5691403953501660386, guid: 906603e299e4c6d4eb1099d4d51ce0dc, type: 3}
       propertyPath: m_TagString
@@ -5763,16 +5773,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6005214530537834529, guid: 89b1be25d3f9ad647ae3c9fe657a07ee, type: 3}
       propertyPath: m_text
-      value: 'Open:
-
-        Open any lockt object or door
+      value: 'Open Spell 1/2
 
         ...
 
-        Only
-        in the darkness can you see the stars
+        Only in the darkness can you see
+        the magic of the stars
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005214530537834529, guid: 89b1be25d3f9ad647ae3c9fe657a07ee, type: 3}
+      propertyPath: m_fontSize
+      value: 0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005214530537834529, guid: 89b1be25d3f9ad647ae3c9fe657a07ee, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: 6114893997459958526, guid: 89b1be25d3f9ad647ae3c9fe657a07ee, type: 3}
       propertyPath: m_RootOrder
@@ -7898,12 +7914,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6922891579155742154, guid: de0fa7a3f926f3448aeb4529d7ce9f64, type: 3}
       propertyPath: m_text
-      value: 'Darkness:
+      value: 'Darkness Spell
 
-        Extinguish all light in an area
+        Select by pressing 2
 
-        Select
-        by pressing 1
+        ...
+
+        Extinguish
+        all light in an area
+
 
 '
       objectReference: {fileID: 0}
