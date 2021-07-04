@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isGrounded;
     public Transform groundTransform;
     public LayerMask groundMask;
+    public bool isMoving;
 
     [HideInInspector]
     public bool canMove = true;
@@ -46,7 +47,13 @@ public class PlayerMovement : MonoBehaviour
             Vector3 movement = Input.GetAxis("Horizontal") * transform.right + Input.GetAxis("Vertical") * transform.forward;
             if (movement.magnitude > 1) movement.Normalize();
             controller.Move(movement * speed * Time.deltaTime);
+            isMoving = movement.x != 0 || movement.y != 0;
         }
+        else
+        {
+            isMoving = false;
+        }
+
 
         if ((Physics.CheckSphere(groundTransform.position, groundDistance, LayerMask.NameToLayer("Player")) && velocity.y <= 0) || !useGravity)
         {

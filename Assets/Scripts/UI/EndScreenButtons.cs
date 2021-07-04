@@ -18,6 +18,8 @@ public class EndScreenButtons : MonoBehaviour
     void Start()
     {
         currentText = text.text;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private void OnMouseOver()

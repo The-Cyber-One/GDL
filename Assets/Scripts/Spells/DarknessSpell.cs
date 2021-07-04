@@ -5,7 +5,7 @@ using UnityEngine;
 public class DarknessSpell : Spell
 {
     [SerializeField]
-    private Animator lightsOffAnim;
+    public Animator lightsOffAnim;
     public GameObject finalScrollPart2;
 
     void Update()
@@ -13,6 +13,7 @@ public class DarknessSpell : Spell
         if (Input.GetMouseButtonDown(0))
         {
             lightsOffAnim.SetTrigger("PlayAnim");
+            CurrentPlayer.parent.GetComponent<Concentrating>().Concentrate = true;
             finalScrollPart2.SetActive(true);
         }
     }

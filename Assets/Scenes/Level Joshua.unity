@@ -3947,8 +3947,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1642588227535267705, guid: 9f9cd367707d5d84e912f305001cc146, type: 3}
   m_PrefabInstance: {fileID: 1729540118306391611}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &637855305
-MeshCollider:
+--- !u!65 &637855305
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3957,10 +3957,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2432090755550338912, guid: d25990527d434cb4587da78d91e2d088, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1.1738644, y: 1.102051, z: 2.0021825}
+  m_Center: {x: 0.0075592995, y: 0.05102551, z: -0.021074057}
 --- !u!54 &637855306
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3975,7 +3974,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &640864928 stripped
 MonoBehaviour:
@@ -8836,7 +8835,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1380845466
 Transform:
   m_ObjectHideFlags: 0
@@ -17940,6 +17939,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 583290585}
     - target: {fileID: 4117380778887295392, guid: 5c95210335d9ac24592a929f86640437, type: 3}
+      propertyPath: cheeseDetector
+      value: 
+      objectReference: {fileID: 1380845465}
+    - target: {fileID: 4117380778887295392, guid: 5c95210335d9ac24592a929f86640437, type: 3}
       propertyPath: bookcaseAnimator
       value: 
       objectReference: {fileID: 919132149170899718}
@@ -22874,6 +22877,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 583290585}
     - target: {fileID: 4117380778887295392, guid: 5c95210335d9ac24592a929f86640437, type: 3}
+      propertyPath: cheeseDetector
+      value: 
+      objectReference: {fileID: 1380845465}
+    - target: {fileID: 4117380778887295392, guid: 5c95210335d9ac24592a929f86640437, type: 3}
       propertyPath: bookcaseAnimator
       value: 
       objectReference: {fileID: 919132149170899718}
@@ -23520,6 +23527,18 @@ PrefabInstance:
     - target: {fileID: 1489441046045536357, guid: 9f9cd367707d5d84e912f305001cc146, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642588227535267705, guid: 9f9cd367707d5d84e912f305001cc146, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642588227535267705, guid: 9f9cd367707d5d84e912f305001cc146, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642588227535267705, guid: 9f9cd367707d5d84e912f305001cc146, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2230386300655519616, guid: 9f9cd367707d5d84e912f305001cc146, type: 3}
       propertyPath: m_LocalScale.z

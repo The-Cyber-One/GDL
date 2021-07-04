@@ -11,6 +11,9 @@ public class PlayerPickUpItems : MonoBehaviour
     GameObject item;
     Image itemImage;
 
+    public Animator bookcaseAnimator;
+    public GameObject cheeseDetector;
+
     public SpellHandler spellHandler;
 
     public Image[] itemBoxes;
@@ -35,49 +38,11 @@ public class PlayerPickUpItems : MonoBehaviour
     {
         if (item != null)
         {
-            if (item.gameObject.CompareTag("Scroll") || item.gameObject.CompareTag("FinalScrollPart1"))
-            {
-                HandleScrolls();
-            }
-            else
-            {
-                HandleItem();
-            }
+            HandleScrolls();
         }
 
     }
-    private void HandleItem()
-    {
-        //If the player is already holding the item
-        if (Input.GetKeyDown(KeyCode.X) && playerPicksUpItem)
-        {
-            item.transform.position = new Vector3(transform.forward.x * 0.6f, transform.forward.y * -10f, transform.forward.z * 0.6f) + transform.position;
-            item.transform.position = new Vector3(item.transform.position.x, 0, item.transform.position.z);
 
-            pickUp.SetText("Press X to pick up");
-            playerPicksUpItem = false;
-            item.transform.parent = null;
-            item = null;
-            playerHasCollisionItem = false;
-            pickUp.enabled = false;
-            playerHasCollisionItem = false;
-        }
-        //If the player wants to pick up the item
-        else if (Input.GetKeyDown(KeyCode.X) && playerHasCollisionItem)
-        {
-            item.transform.position = new Vector3(transform.forward.x * 0.6f, transform.forward.y * -2f, transform.forward.z * 0.6f) + transform.position;
-
-            item.transform.LookAt(transform.position);
-
-            item.transform.rotation *= Quaternion.Euler(-90, 0, 0);
-
-            item.transform.parent = transform;
-            pickUp.SetText("Press X to release");
-            playerPicksUpItem = true;
-
-            Debug.Log("PickUp");
-        }
-    }
     private void HandleScrolls()
     {
         //If the player is already holding the item
@@ -97,6 +62,11 @@ public class PlayerPickUpItems : MonoBehaviour
             if (!item.gameObject.CompareTag("FinalScrollPart1"))
             {
                 spellHandler.UnlockNextSpell();
+            }
+            else
+            {
+                bookcaseAnimator.SetTrigger("Move");
+                cheeseDetector.SetActive(true);
             }
 
             item.SetActive(false);
