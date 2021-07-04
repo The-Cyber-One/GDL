@@ -8,6 +8,9 @@ public class SpellHandler : MonoBehaviour
     public Spell activeSpell;
     public Spell[] spells;
     public bool[] unlocked;
+    public ParticleSystem electricPSPlayer0;
+    public ParticleSystem electricPSPlayer1;
+    public Animator spellActiveLightAnim;
 
     KeyCode resize = KeyCode.Alpha1, open = KeyCode.Alpha2, lightSwitch = KeyCode.Alpha3;
     List<KeyCode> keyCodes;
@@ -44,6 +47,7 @@ public class SpellHandler : MonoBehaviour
             }
         }
 
+
         bool anyConcentrating = false;
         foreach (GameObject player in playersController.players)
         {
@@ -51,6 +55,33 @@ public class SpellHandler : MonoBehaviour
             {
                 anyConcentrating = true;
             }
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            switch (playersController.enabledPlayer)
+            {
+                case 0:
+                    var startLife0 = electricPSPlayer0.main;
+                    startLife0.startLifetime = 0.8f;
+                    spellActiveLightAnim.SetBool("player1SpellActive", true);
+                    break;
+
+                case 1:
+                    spellActiveLightAnim.SetBool("player2SpellActive", true);
+                    var startLife1 = electricPSPlayer1.main;
+                    startLife1.startLifetime = 0.8f;
+                    break;
+            }
+        }
+        else
+        {
+            var startLife0 = electricPSPlayer0.main;
+            var startLife1 = electricPSPlayer1.main;
+            startLife0.startLifetime = 0;
+            startLife1.startLifetime = 0;
+            spellActiveLightAnim.SetBool("player1SpellActive", false);
+            spellActiveLightAnim.SetBool("player2SpellActive", false);
         }
 
         darknessSpell.lightsOffAnim.SetBool("concentrating", anyConcentrating);
