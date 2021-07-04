@@ -296,6 +296,10 @@ PrefabInstance:
       propertyPath: minScale
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 2502658676018147665, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
+      propertyPath: ignoreTargetMask.m_Bits
+      value: 115
+      objectReference: {fileID: 0}
     - target: {fileID: 2502658676449997092, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
       propertyPath: m_Name
       value: SpellHandler
