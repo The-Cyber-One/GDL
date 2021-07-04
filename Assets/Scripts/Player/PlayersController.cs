@@ -6,7 +6,7 @@ public class PlayersController : MonoBehaviour
 {
     private GameObject[] players;
     private int enabledPlayer = 0;
-    Camera activeCamera;
+    public Camera activeCamera;
     public SpellHandler spellHandler;
 
     // Start is called before the first frame update
