@@ -7,10 +7,11 @@ public class SpellResize : Spell
     Transform otherPlayer;
 
     public LayerMask targetMask, ignoreTargetMask;
-    public Vector3 minScale = new Vector3(.3f, .3f, .3f), maxScale = new Vector3(5, 5, 5);
+    public float minScale = 0.1f, maxScale = 3f;
 
     float _originalScale, originalDistance;
-    LayerMask _target1Mask, _target2Mask;
+
+    //public Transform test;
 
     // Update is called once per frame
     void Update()
@@ -26,12 +27,10 @@ public class SpellResize : Spell
             RaycastHit hit;
             if (Physics.Raycast(CurrentPlayer.transform.position, CurrentPlayer.transform.forward, out hit, Mathf.Infinity, targetMask))
             {
-                if (CurrentPlayer.transform.parent != hit.transform)
-                {
-                    otherPlayer = hit.transform;
-                    _originalScale = otherPlayer.localScale.x;
-                    originalDistance = Vector3.Distance(CurrentPlayer.transform.position, otherPlayer.transform.position);
-                }
+                Debug.DrawLine(CurrentPlayer.transform.position, hit.point, Color.red);
+                otherPlayer = hit.transform;
+                _originalScale = otherPlayer.localScale.x;
+                originalDistance = Vector3.Distance(CurrentPlayer.transform.position, otherPlayer.transform.position);
             }
         }
         if (Input.GetMouseButtonUp(0) && otherPlayer != null)
@@ -50,36 +49,24 @@ public class SpellResize : Spell
         RaycastHit hit;
         if (Physics.Raycast(CurrentPlayer.position, CurrentPlayer.transform.forward, out hit, Mathf.Infinity, ignoreTargetMask))
         {
-            float offset;
-            if (CurrentPlayer.GetComponentInChildren<Camera>().transform.rotation.x < 0)
+            otherPlayer.position = hit.point;
+
+            ReScale();
+
+            Transform boundingBox = otherPlayer.Find("BoundingBox");
+
+            while (Physics.OverlapBox(otherPlayer.position, boundingBox.lossyScale / 2, boundingBox.rotation, LayerMask.NameToLayer("Player")).Length > 0)
             {
-                offset = 0;
-            }
-            else
-            {
-                offset = otherPlayer.transform.localScale.y;
-            }
+                otherPlayer.position -= CurrentPlayer.transform.forward * 0.1f;
+                ReScale();
 
-            var positionOffset = CurrentPlayer.transform.forward * otherPlayer.transform.localScale.x;
+                //test.localScale = boundingBox.lossyScale;
+                //test.position = boundingBox.position;
+                //test.rotation = boundingBox.rotation;
 
-            otherPlayer.position = hit.point - positionOffset + new Vector3(0, offset, 0);
-
-            float distance = Vector3.Distance(CurrentPlayer.transform.position, otherPlayer.transform.position);
-            float scaleMultiplier = distance / originalDistance;
-
-            Vector3 scale = scaleMultiplier * _originalScale * Vector3.one;
-
-            //minmax
-            if (scale.x < minScale.x)
-            {
-                scale = minScale;
-            }
-            else if (scale.x > maxScale.x)
-            {
-                scale = maxScale;
             }
 
-            otherPlayer.localScale = scale;
+
 
             //foreach (GameObject player in players)
             //{
@@ -88,5 +75,18 @@ public class SpellResize : Spell
             //    main.startSize = scale.x;
             //}
         }
+    }
+
+    private void ReScale()
+    {
+        float distance = Vector3.Distance(CurrentPlayer.transform.position, otherPlayer.transform.position);
+        float scaleMultiplier = distance / originalDistance;
+
+        Vector3 scale = scaleMultiplier * _originalScale * Vector3.one;
+
+        if (scale.x < minScale) scale = Vector3.one * minScale;
+        if (scale.x > maxScale) scale = Vector3.one * maxScale;
+
+        otherPlayer.localScale = scale;
     }
 }

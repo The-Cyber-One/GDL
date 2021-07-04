@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Ground detection")]
     public float groundDistance = 0.1f;
+    public bool isGrounded;
     public Transform groundTransform;
     public LayerMask groundMask;
 
@@ -28,7 +29,16 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool isGrounded = Physics.CheckSphere(groundTransform.position, groundDistance, groundMask);
+        Collider[] colliders = Physics.OverlapSphere(groundTransform.position, groundDistance);
+
+        bool foundFloor = false;
+        foreach (Collider collider in colliders)
+        {
+            if (collider.CompareTag("Floor"))
+                foundFloor = true;
+        }
+
+        isGrounded = foundFloor;
 
         if (canMove)
         {
@@ -37,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
             controller.Move(movement * speed * Time.deltaTime);
         }
 
-        if (isGrounded && velocity.y <= 0)
+        if (Physics.CheckSphere(groundTransform.position, groundDistance, LayerMask.NameToLayer("Player")) && velocity.y <= 0)
         {
             velocity.y = -2f;
         }
