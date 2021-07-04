@@ -27,7 +27,6 @@ public class SpellResize : Spell
             RaycastHit hit;
             if (Physics.Raycast(CurrentPlayer.transform.position, CurrentPlayer.transform.forward, out hit, Mathf.Infinity, targetMask))
             {
-                Debug.DrawLine(CurrentPlayer.transform.position, hit.point, Color.red);
                 otherPlayer = hit.transform;
                 _originalScale = otherPlayer.localScale.x;
                 originalDistance = Vector3.Distance(CurrentPlayer.transform.position, otherPlayer.transform.position);
@@ -65,13 +64,14 @@ public class SpellResize : Spell
         RaycastHit hit;
         if (Physics.Raycast(CurrentPlayer.position, CurrentPlayer.transform.forward, out hit, Mathf.Infinity, ignoreTargetMask))
         {
+            Debug.Log(LayerMask.LayerToName(hit.transform.gameObject.layer));
             otherPlayer.position = hit.point;
 
             ReScale();
 
             Transform boundingBox = otherPlayer.Find("BoundingBox");
 
-            while (Physics.OverlapBox(otherPlayer.position, boundingBox.lossyScale / 2, boundingBox.rotation, LayerMask.NameToLayer("Player")).Length > 0)
+            while (Physics.OverlapBox(otherPlayer.position, boundingBox.lossyScale / 2, boundingBox.rotation, ignoreTargetMask).Length > 0)
             {
                 otherPlayer.position -= CurrentPlayer.transform.forward * 0.1f;
                 ReScale();
