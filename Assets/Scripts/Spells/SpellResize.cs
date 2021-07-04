@@ -7,7 +7,7 @@ public class SpellResize : Spell
     Transform otherPlayer;
 
     public LayerMask targetMask, ignoreTargetMask;
-    public float minScale = 0.1f, maxScale = 3f;
+    public float minScalePlayer = 0.1f, maxScalePlayer = 3f, minScaleObject = 0.1f, maxScaleObject = 10f;
 
     float _originalScale, originalDistance;
 
@@ -35,6 +35,10 @@ public class SpellResize : Spell
                 {
                     playerMovement.useGravity = false;
                 }
+                else
+                {
+                    otherPlayer.GetComponent<Rigidbody>().isKinematic = true;
+                }
             }
         }
         if (Input.GetMouseButtonUp(0) && otherPlayer != null)
@@ -42,6 +46,10 @@ public class SpellResize : Spell
             if (otherPlayer.TryGetComponent(out PlayerMovement playerMovement))
             {
                 playerMovement.useGravity = true;
+            }
+            else
+            {
+                otherPlayer.GetComponent<Rigidbody>().isKinematic = false;
             }
             otherPlayer = null;
         }
@@ -90,10 +98,17 @@ public class SpellResize : Spell
 
         Vector3 scale = scaleMultiplier * _originalScale * Vector3.one;
 
-        if (scale.x < minScale) scale = Vector3.one * minScale;
-        if (scale.x > maxScale) scale = Vector3.one * maxScale;
+        if (otherPlayer.CompareTag("Player"))
+        {
+            if (scale.x < minScalePlayer) scale = Vector3.one * minScalePlayer;
+            if (scale.x > maxScalePlayer) scale = Vector3.one * maxScalePlayer;
+        }
+        else
+        {
+            if (scale.x < minScaleObject) scale = Vector3.one * minScaleObject;
+            if (scale.x > maxScaleObject) scale = Vector3.one * maxScaleObject;
+        }
 
         otherPlayer.localScale = scale;
-        Debug.Log(scale);
     }
 }
