@@ -484,9 +484,9 @@ GameObject:
   - component: {fileID: 321503908}
   - component: {fileID: 321503907}
   - component: {fileID: 321503906}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: floor
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1500,6 +1500,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 286908464}
     m_Modifications:
+    - target: {fileID: 232507206234965370, guid: 5c95210335d9ac24592a929f86640437, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 377827880431245307, guid: 5c95210335d9ac24592a929f86640437, type: 3}
       propertyPath: InitialModule.startColor.minMaxState
       value: 1
@@ -1555,6 +1559,10 @@ PrefabInstance:
     - target: {fileID: 2022532112546807675, guid: 5c95210335d9ac24592a929f86640437, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5585377072660764332, guid: 5c95210335d9ac24592a929f86640437, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c95210335d9ac24592a929f86640437, type: 3}
