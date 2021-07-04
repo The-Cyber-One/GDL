@@ -11,6 +11,7 @@ public class SpellHandler : MonoBehaviour
 
     KeyCode resize = KeyCode.Alpha1, open = KeyCode.Alpha2, lightSwitch = KeyCode.Alpha3;
     List<KeyCode> keyCodes;
+    DarknessSpell darknessSpell;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,10 @@ public class SpellHandler : MonoBehaviour
         foreach (Spell spell in spells)
         {
             spell.transform.gameObject.SetActive(false);
+            if (spell is DarknessSpell)
+            {
+                darknessSpell = (spell as DarknessSpell);
+            }
         }
         unlocked = new bool[spells.Length];
 
@@ -25,7 +30,6 @@ public class SpellHandler : MonoBehaviour
         keyCodes.Add(resize);
         keyCodes.Add(open);
         keyCodes.Add(lightSwitch);
-
     }
 
     // Update is called once per frame
@@ -39,6 +43,17 @@ public class SpellHandler : MonoBehaviour
                 MakeActive();
             }
         }
+
+        bool anyConcentrating = false;
+        foreach (GameObject player in playersController.players)
+        {
+            if (player.GetComponent<Concentrating>().Concentrate)
+            {
+                anyConcentrating = true;
+            }
+        }
+
+        darknessSpell.lightsOffAnim.SetBool("concentrating", anyConcentrating);
     }
 
     public void SpellSetup(GameObject[] players, Camera cam)

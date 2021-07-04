@@ -193,8 +193,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellColor:
     serializedVersion: 2
-    key0: {r: 0.13725491, g: 0.74509805, b: 0.16862746, a: 0}
-    key1: {r: 0.13725491, g: 0.74509805, b: 0.16862746, a: 1}
+    key0: {r: 0.13725491, g: 0.74509805, b: 0.16862746, a: 1}
+    key1: {r: 0.13725491, g: 0.74509805, b: 0.16862746, a: 0}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -210,8 +210,8 @@ MonoBehaviour:
     ctime6: 0
     ctime7: 0
     atime0: 0
-    atime1: 32768
-    atime2: 65535
+    atime1: 65535
+    atime2: 0
     atime3: 0
     atime4: 0
     atime5: 0
@@ -219,17 +219,17 @@ MonoBehaviour:
     atime7: 0
     m_Mode: 0
     m_NumColorKeys: 2
-    m_NumAlphaKeys: 3
+    m_NumAlphaKeys: 2
   targetMask:
     serializedVersion: 2
     m_Bits: 128
   ignoreTargetMask:
     serializedVersion: 2
-    m_Bits: 115
+    m_Bits: 119
   minScalePlayer: 0.1
   maxScalePlayer: 3
-  minScaleObject: 0.08
-  maxScaleObject: 1.5
+  minScaleObject: 0.1
+  maxScaleObject: 10
 --- !u!1 &2502658676449997092
 GameObject:
   m_ObjectHideFlags: 0

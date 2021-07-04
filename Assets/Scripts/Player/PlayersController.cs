@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayersController : MonoBehaviour
 {
-    private GameObject[] players;
+    public GameObject[] players;
     private int enabledPlayer = 0;
     public Camera activeCamera;
     public SpellHandler spellHandler;
@@ -29,6 +29,10 @@ public class PlayersController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             SwitchPlayer();
+        }
+        if (players[enabledPlayer].GetComponent<PlayerMovement>().isMoving || players[enabledPlayer].GetComponentInChildren<CameraController>().isLooking)
+        {
+            players[enabledPlayer].GetComponentInChildren<Concentrating>().Concentrate = false;
         }
     }
 

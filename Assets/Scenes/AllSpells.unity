@@ -375,6 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e0a75075ef00cf408607ba96561c00a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  players: []
   activeCamera: {fileID: 0}
   spellHandler: {fileID: 183626135}
 --- !u!1 &303931457
@@ -1082,6 +1083,24 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 3867307052286895072, guid: ecfe9f5d873d9fb4aad80c155aa14077, type: 3}
   m_PrefabInstance: {fileID: 1647347818}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1300258428 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2022532112546807558, guid: 5c95210335d9ac24592a929f86640437, type: 3}
+  m_PrefabInstance: {fileID: 2035582675}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1300258429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300258428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3467eb9ec04ae6849837621f3bc7ff72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  concentrate: 0
 --- !u!1 &1328312049
 GameObject:
   m_ObjectHideFlags: 0
@@ -1567,6 +1586,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c95210335d9ac24592a929f86640437, type: 3}
+--- !u!1 &2136771684 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2022532112546807558, guid: 5c95210335d9ac24592a929f86640437, type: 3}
+  m_PrefabInstance: {fileID: 493816416}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2136771685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136771684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3467eb9ec04ae6849837621f3bc7ff72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  concentrate: 0
 --- !u!1001 &2502658676270569650
 PrefabInstance:
   m_ObjectHideFlags: 0

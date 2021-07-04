@@ -82,8 +82,6 @@ public class SpellResize : Spell
 
             }
 
-
-
             //foreach (GameObject player in players)
             //{
             //    player.transform.Find("MagicLight").GetComponent<Light>().range = scale.x;
