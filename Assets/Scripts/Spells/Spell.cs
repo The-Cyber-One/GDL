@@ -29,12 +29,15 @@ public class Spell : MonoBehaviour
     {
         foreach (GameObject player in players)
         {
-            Debug.Log(player);
             var color = player.transform.Find("CircleParticle").GetComponent<ParticleSystem>().colorOverLifetime;
             color.enabled = true;
             color.color = spellColor;
 
             color = player.transform.Find("DotParticle").GetComponent<ParticleSystem>().colorOverLifetime;
+            color.enabled = true;
+            color.color = spellColor;
+
+            color = player.transform.Find("Electric").GetComponent<ParticleSystem>().colorOverLifetime;
             color.enabled = true;
             color.color = spellColor;
 

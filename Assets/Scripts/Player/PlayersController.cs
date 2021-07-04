@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayersController : MonoBehaviour
 {
     private GameObject[] players;
-    private int enabledPlayer = 0;
+    public int enabledPlayer = 0;
     Camera activeCamera;
     public SpellHandler spellHandler;
 
