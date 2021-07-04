@@ -7,8 +7,11 @@ public class SpellResize : Spell
     Transform otherPlayer;
 
     public LayerMask targetMask, ignoreTargetMask;
+    public float minScalePlayer = 0.1f, maxScalePlayer = 3f, minScaleObject = 0.1f, maxScaleObject = 10f;
 
     float _originalScale, originalDistance;
+
+    //public Transform test;
 
     // Update is called once per frame
     void Update()
@@ -28,10 +31,26 @@ public class SpellResize : Spell
                 otherPlayer = hit.transform;
                 _originalScale = otherPlayer.localScale.x;
                 originalDistance = Vector3.Distance(CurrentPlayer.transform.position, otherPlayer.transform.position);
+                if (otherPlayer.TryGetComponent(out PlayerMovement playerMovement))
+                {
+                    playerMovement.useGravity = false;
+                }
+                else
+                {
+                    otherPlayer.GetComponent<Rigidbody>().isKinematic = true;
+                }
             }
         }
         if (Input.GetMouseButtonUp(0) && otherPlayer != null)
         {
+            if (otherPlayer.TryGetComponent(out PlayerMovement playerMovement))
+            {
+                playerMovement.useGravity = true;
+            }
+            else
+            {
+                otherPlayer.GetComponent<Rigidbody>().isKinematic = false;
+            }
             otherPlayer = null;
         }
     }
@@ -46,15 +65,24 @@ public class SpellResize : Spell
         RaycastHit hit;
         if (Physics.Raycast(CurrentPlayer.position, CurrentPlayer.transform.forward, out hit, Mathf.Infinity, ignoreTargetMask))
         {
-            var positionOffset = CurrentPlayer.transform.forward * otherPlayer.transform.localScale.x;
+            otherPlayer.position = hit.point;
 
-            otherPlayer.position = hit.point - positionOffset + new Vector3(0, otherPlayer.localScale.y, 0);
+            ReScale();
 
-            float distance = Vector3.Distance(CurrentPlayer.transform.position, otherPlayer.transform.position);
-            float scaleMultiplier = distance / originalDistance;
+            Transform boundingBox = otherPlayer.Find("BoundingBox");
 
-            Vector3 scale = scaleMultiplier * _originalScale * Vector3.one;
-            otherPlayer.localScale = scale;
+            while (Physics.OverlapBox(otherPlayer.position, boundingBox.lossyScale / 2, boundingBox.rotation, LayerMask.NameToLayer("Player")).Length > 0)
+            {
+                otherPlayer.position -= CurrentPlayer.transform.forward * 0.1f;
+                ReScale();
+
+                //test.localScale = boundingBox.lossyScale;
+                //test.position = boundingBox.position;
+                //test.rotation = boundingBox.rotation;
+
+            }
+
+
 
             //foreach (GameObject player in players)
             //{
@@ -63,5 +91,26 @@ public class SpellResize : Spell
             //    main.startSize = scale.x;
             //}
         }
+    }
+
+    private void ReScale()
+    {
+        float distance = Vector3.Distance(CurrentPlayer.transform.position, otherPlayer.transform.position);
+        float scaleMultiplier = distance / originalDistance;
+
+        Vector3 scale = scaleMultiplier * _originalScale * Vector3.one;
+
+        if (otherPlayer.CompareTag("Player"))
+        {
+            if (scale.x < minScalePlayer) scale = Vector3.one * minScalePlayer;
+            if (scale.x > maxScalePlayer) scale = Vector3.one * maxScalePlayer;
+        }
+        else
+        {
+            if (scale.x < minScaleObject) scale = Vector3.one * minScaleObject;
+            if (scale.x > maxScaleObject) scale = Vector3.one * maxScaleObject;
+        }
+
+        otherPlayer.localScale = scale;
     }
 }

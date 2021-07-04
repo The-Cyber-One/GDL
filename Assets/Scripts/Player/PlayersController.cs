@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayersController : MonoBehaviour
 {
     private GameObject[] players;
-    public int enabledPlayer = 0;
-    Camera activeCamera;
+    private int enabledPlayer = 0;
+    public Camera activeCamera;
     public SpellHandler spellHandler;
 
     // Start is called before the first frame update
