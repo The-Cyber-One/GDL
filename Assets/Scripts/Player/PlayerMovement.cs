@@ -29,7 +29,16 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics.CheckSphere(groundTransform.position, groundDistance, groundMask);
+        Collider[] colliders = Physics.OverlapSphere(groundTransform.position, groundDistance);
+
+        bool foundFloor = false;
+        foreach (Collider collider in colliders)
+        {
+            if (collider.CompareTag("Floor"))
+                foundFloor = true;
+        }
+
+        isGrounded = foundFloor;
 
         if (canMove)
         {
