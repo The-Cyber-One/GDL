@@ -852,7 +852,8 @@ MonoBehaviour:
   speed: 5
   jumpHeight: 3
   gravity: -9.81
-  groundDistance: 0.1
+  useGravity: 1
+  groundDistance: 0.3
   isGrounded: 0
   groundTransform: {fileID: 851465107661346655}
   groundMask:

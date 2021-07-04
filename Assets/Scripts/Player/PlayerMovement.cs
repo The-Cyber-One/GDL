@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
             controller.Move(movement * speed * Time.deltaTime);
         }
 
-        if (Physics.CheckSphere(groundTransform.position, groundDistance, LayerMask.NameToLayer("Player")) && velocity.y <= 0 || !useGravity)
+        if ((Physics.CheckSphere(groundTransform.position, groundDistance, LayerMask.NameToLayer("Player")) && velocity.y <= 0) || !useGravity)
         {
             velocity.y = -2f;
         }
