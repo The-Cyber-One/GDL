@@ -10,6 +10,7 @@ public class SpellHandler : MonoBehaviour
 	public bool[] unlocked;
 	public ParticleSystem electricPSPlayer0;
 	public ParticleSystem electricPSPlayer1;
+	public Animator spellActiveLightAnim;
 
 	KeyCode resize = KeyCode.Alpha1, open = KeyCode.Alpha2, lightSwitch = KeyCode.Alpha3;
 	List<KeyCode> keyCodes;
@@ -48,9 +49,11 @@ public class SpellHandler : MonoBehaviour
 				case 0:
 					var startLife0 = electricPSPlayer0.main;
 					startLife0.startLifetime = 0.8f;
+					spellActiveLightAnim.SetBool("player1SpellActive", true);
 					break;
 
 				case 1:
+					spellActiveLightAnim.SetBool("player2SpellActive", true);
 					var startLife1 = electricPSPlayer1.main;
 					startLife1.startLifetime = 0.8f;
 					break;
@@ -65,7 +68,9 @@ public class SpellHandler : MonoBehaviour
             var startLife1 = electricPSPlayer1.main;
             startLife0.startLifetime = 0;
             startLife1.startLifetime = 0;
-        }
+			spellActiveLightAnim.SetBool("player1SpellActive", false);
+			spellActiveLightAnim.SetBool("player2SpellActive", false);
+		}
 
 	}
 

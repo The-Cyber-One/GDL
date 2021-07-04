@@ -340,6 +340,7 @@ GameObject:
   m_Component:
   - component: {fileID: 286908464}
   - component: {fileID: 286908465}
+  - component: {fileID: 286908466}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -375,7 +376,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e0a75075ef00cf408607ba96561c00a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabledPlayer: 0
   spellHandler: {fileID: 183626135}
+--- !u!95 &286908466
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286908463}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9c7203e5f9d57374e97805202246077e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &303931457
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,6 +684,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &863483010 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6557451685095028168, guid: ad42aa8124df5c84c827c86780085b73, type: 3}
+  m_PrefabInstance: {fileID: 2096100119}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &936256113
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,6 +1004,14 @@ PrefabInstance:
     - target: {fileID: 746803927824372185, guid: 28b222d2c7b58f34380917a78d9d3671, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1258909688910305697, guid: 28b222d2c7b58f34380917a78d9d3671, type: 3}
+      propertyPath: m_Range
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1258909688910305697, guid: 28b222d2c7b58f34380917a78d9d3671, type: 3}
+      propertyPath: m_Intensity
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1606751571245962178, guid: 28b222d2c7b58f34380917a78d9d3671, type: 3}
       propertyPath: NoiseModule.enabled
@@ -1366,7 +1400,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5628638839492638969, guid: ad42aa8124df5c84c827c86780085b73, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5628638839492638969, guid: ad42aa8124df5c84c827c86780085b73, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1408,6 +1442,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6141032707522670721, guid: ad42aa8124df5c84c827c86780085b73, type: 3}
+      propertyPath: m_Range
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141032707522670721, guid: ad42aa8124df5c84c827c86780085b73, type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6557451685095028168, guid: ad42aa8124df5c84c827c86780085b73, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
       value: 0.0001
@@ -1445,6 +1487,26 @@ PrefabInstance:
       propertyPath: lightsOffAnim
       value: 
       objectReference: {fileID: 1141281096}
+    - target: {fileID: 2502658674777454835, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
+      propertyPath: spellColor.atime1
+      value: 32768
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502658674777454835, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
+      propertyPath: spellColor.atime2
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502658674777454835, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
+      propertyPath: spellColor.key0.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502658674777454835, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
+      propertyPath: spellColor.key2.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502658674777454835, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
+      propertyPath: spellColor.m_NumAlphaKeys
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2502658675017017068, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
       propertyPath: doorLeft
       value: 
@@ -1453,6 +1515,46 @@ PrefabInstance:
       propertyPath: doorRight
       value: 
       objectReference: {fileID: 483724275}
+    - target: {fileID: 2502658675017017068, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
+      propertyPath: spellColor.atime1
+      value: 31611
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502658675017017068, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
+      propertyPath: spellColor.atime2
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502658675017017068, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
+      propertyPath: spellColor.key0.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502658675017017068, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
+      propertyPath: spellColor.key1.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502658675017017068, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
+      propertyPath: spellColor.m_NumAlphaKeys
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502658676018147665, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
+      propertyPath: spellColor.atime1
+      value: 30262
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502658676018147665, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
+      propertyPath: spellColor.atime2
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502658676018147665, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
+      propertyPath: spellColor.key0.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502658676018147665, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
+      propertyPath: spellColor.key1.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502658676018147665, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
+      propertyPath: spellColor.m_NumAlphaKeys
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2502658676449997092, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
       propertyPath: m_Name
       value: SpellHandler
@@ -1462,9 +1564,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 976228129}
     - target: {fileID: 2502658676449997093, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
+      propertyPath: electricPSPlayer0
+      value: 
+      objectReference: {fileID: 976228129}
+    - target: {fileID: 2502658676449997093, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
+      propertyPath: electricPSPlayer1
+      value: 
+      objectReference: {fileID: 863483010}
+    - target: {fileID: 2502658676449997093, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
       propertyPath: playersController
       value: 
       objectReference: {fileID: 286908465}
+    - target: {fileID: 2502658676449997093, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
+      propertyPath: spellActiveLightAnim
+      value: 
+      objectReference: {fileID: 286908466}
     - target: {fileID: 2502658676449997098, guid: e2454f4d5bb901c44bffee57eebdc0fd, type: 3}
       propertyPath: m_RootOrder
       value: 8
