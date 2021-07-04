@@ -6,7 +6,6 @@ public class DeactivateThis : MonoBehaviour
 {
     public void DeactivateSelf()
     {
-        Debug.Log("im off");
         gameObject.SetActive(false);
     }
 }
