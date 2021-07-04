@@ -109,13 +109,11 @@ public class PlayerPickUpItems : MonoBehaviour
         //If the player wants to pick up the item
         else if (Input.GetKeyDown(KeyCode.X) && playerHasCollisionItem)
         {
-            item.transform.position = new Vector3(transform.forward.x * 0.5f, transform.forward.y * -0.5f, 0) + transform.position;
+            item.transform.position = transform.position + transform.forward / 2;
 
-            item.transform.LookAt(transform.position);
+            item.transform.LookAt(transform);
 
-            item.transform.rotation *= Quaternion.Euler(0, 90, 75);
-
-            item.transform.localScale = new Vector3(15, 15, 15);
+            item.transform.Rotate(new Vector3(0, 90, 90));
 
             item.transform.parent = transform;
             pickUp.SetText("Press X to put away");
