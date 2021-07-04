@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5f;
     public float jumpHeight = 1f;
     public float gravity = -9.81f;
+    public bool useGravity = true;
 
     [Header("Ground detection")]
     public float groundDistance = 0.1f;
@@ -47,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
             controller.Move(movement * speed * Time.deltaTime);
         }
 
-        if (Physics.CheckSphere(groundTransform.position, groundDistance, LayerMask.NameToLayer("Player")) && velocity.y <= 0)
+        if (Physics.CheckSphere(groundTransform.position, groundDistance, LayerMask.NameToLayer("Player")) && velocity.y <= 0 || !useGravity)
         {
             velocity.y = -2f;
         }
@@ -57,7 +58,10 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
         }
 
-        velocity.y += gravity * Time.deltaTime;
+        if (useGravity)
+        {
+            velocity.y += gravity * Time.deltaTime;
+        }
         controller.Move(velocity * Time.deltaTime);
     }
 }

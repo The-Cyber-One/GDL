@@ -31,10 +31,12 @@ public class SpellResize : Spell
                 otherPlayer = hit.transform;
                 _originalScale = otherPlayer.localScale.x;
                 originalDistance = Vector3.Distance(CurrentPlayer.transform.position, otherPlayer.transform.position);
+                otherPlayer.GetComponent<PlayerMovement>().useGravity = false;
             }
         }
         if (Input.GetMouseButtonUp(0) && otherPlayer != null)
         {
+            otherPlayer.GetComponent<PlayerMovement>().useGravity = true;
             otherPlayer = null;
         }
     }
