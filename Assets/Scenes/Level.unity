@@ -3202,11 +3202,13 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Resize:
 
-        Change the size of another human
+        Change the size of another
 
 
-        Select
-        by pressing 1
+        Select by pressing
+        1
+
+        To use drag an item/human
 
 '
       objectReference: {fileID: 0}
@@ -3650,11 +3652,12 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Open:
 
-        ...
+        /p.*?w!
 
-        Klik the number 3
+        Select by pressing 2
 
-'
+        To use
+        stand in front of the object'
       objectReference: {fileID: 0}
     - target: {fileID: 5021580729134890584, guid: 906603e299e4c6d4eb1099d4d51ce0dc, type: 3}
       propertyPath: m_RootOrder
@@ -5744,7 +5747,7 @@ PrefabInstance:
 
         Open any lockt object or door
 
-        ...
+        /e%rxt *?w
 
         Only
         in the darkness can you see the stars
@@ -7880,9 +7883,15 @@ PrefabInstance:
         Extinguish all light in an area
 
         Select
-        by pressing 1
+        by pressing 3
+
+        To use don''t move
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6922891579155742155, guid: de0fa7a3f926f3448aeb4529d7ce9f64, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.0044
       objectReference: {fileID: 0}
     - target: {fileID: 7465196093476315126, guid: de0fa7a3f926f3448aeb4529d7ce9f64, type: 3}
       propertyPath: m_RootOrder
@@ -17837,6 +17846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e0a75075ef00cf408607ba96561c00a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  players: []
   activeCamera: {fileID: 0}
   spellHandler: {fileID: 583290585}
 --- !u!4 &748309474073234916

@@ -37,6 +37,10 @@ public class Spell : MonoBehaviour
             color.enabled = true;
             color.color = spellColor;
 
+            color = player.transform.Find("Electric").GetComponent<ParticleSystem>().colorOverLifetime;
+            color.enabled = true;
+            color.color = spellColor;
+
             player.transform.Find("MagicBall").GetComponent<Renderer>().material.color = spellColor.colorKeys[0].color;
             player.transform.Find("MagicBall").GetComponent<Renderer>().material.SetColor("_EmissionColor", spellColor.colorKeys[0].color);
 
