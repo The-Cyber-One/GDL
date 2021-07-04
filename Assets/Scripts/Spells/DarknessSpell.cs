@@ -5,13 +5,15 @@ using UnityEngine;
 public class DarknessSpell : Spell
 {
     [SerializeField]
-    public Animator lightsOffAnim;
+    private Animator lightsOffAnim;
+    public GameObject finalScrollPart2;
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            CurrentPlayer.parent.GetComponent<Concentrating>().Concentrate = true;
+            lightsOffAnim.SetTrigger("PlayAnim");
+            finalScrollPart2.SetActive(true);
         }
     }
 }
