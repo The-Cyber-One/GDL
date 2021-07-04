@@ -31,12 +31,18 @@ public class SpellResize : Spell
                 otherPlayer = hit.transform;
                 _originalScale = otherPlayer.localScale.x;
                 originalDistance = Vector3.Distance(CurrentPlayer.transform.position, otherPlayer.transform.position);
-                otherPlayer.GetComponent<PlayerMovement>().useGravity = false;
+                if (otherPlayer.TryGetComponent(out PlayerMovement playerMovement))
+                {
+                    playerMovement.useGravity = false;
+                }
             }
         }
         if (Input.GetMouseButtonUp(0) && otherPlayer != null)
         {
-            otherPlayer.GetComponent<PlayerMovement>().useGravity = true;
+            if (otherPlayer.TryGetComponent(out PlayerMovement playerMovement))
+            {
+                playerMovement.useGravity = true;
+            }
             otherPlayer = null;
         }
     }
@@ -90,5 +96,6 @@ public class SpellResize : Spell
         if (scale.x > maxScale) scale = Vector3.one * maxScale;
 
         otherPlayer.localScale = scale;
+        Debug.Log(scale);
     }
 }
