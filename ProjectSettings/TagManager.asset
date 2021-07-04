@@ -9,6 +9,7 @@ TagManager:
   - FinalScrollPart1
   - Scroll
   - Floor
+  - Cheese
   layers:
   - Default
   - TransparentFX
