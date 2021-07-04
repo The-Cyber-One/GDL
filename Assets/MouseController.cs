@@ -7,16 +7,20 @@ public class MouseController : MonoBehaviour
     public Animator mouseAnimator;
     public GameObject mouse;
     public float minCheeseSize = 5;
+    public SpellResize spellResize;
 
     private void OnTriggerStay(Collider other)
     {
         Debug.Log(other.name);
-        if(other.tag == "Cheese")
+        if (other.tag == "Cheese")
         {
-            if (other.transform.localScale.x >= minCheeseSize)
+            if (other.GetComponent<CollisionChecker>().collision)
             {
-                mouseAnimator.SetTrigger("EatCheese");
-                other.transform.parent = mouse.transform;
+                if (other.transform.localScale.x >= minCheeseSize && !spellResize.movingCheese && other.GetComponent<CollisionChecker>().otherCollision.gameObject.CompareTag("Floor"))
+                {
+                    mouseAnimator.SetTrigger("EatCheese");
+                    other.transform.parent = mouse.transform;
+                }
             }
         }
     }
