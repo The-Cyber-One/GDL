@@ -32,4 +32,9 @@ public class WaterController : MonoBehaviour
             animator.SetBool("Growing", growing);
         }
     }
+
+    public void StopAnimator()
+    {
+        animator.enabled = false;
+    }
 }
