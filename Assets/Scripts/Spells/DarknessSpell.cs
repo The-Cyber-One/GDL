@@ -14,6 +14,7 @@ public class DarknessSpell : Spell
         if (Input.GetMouseButtonDown(0))
         {
             lightsOffAnim.SetTrigger("PlayAnim");
+            concentrate = true;
         }
     }
 }

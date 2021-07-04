@@ -7,6 +7,7 @@ public class Spell : MonoBehaviour
     Transform currentPlayer;
     public Gradient spellColor;
     protected GameObject[] players;
+    public bool concentrate;
 
     public Transform CurrentPlayer
     {
