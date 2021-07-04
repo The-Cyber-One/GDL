@@ -14,6 +14,7 @@ public class DarknessSpell : Spell
         {
             lightsOffAnim.SetTrigger("PlayAnim");
             finalScrollPart2.SetActive(true);
+            CurrentPlayer.parent.GetComponent<Concentrating>().Concentrate = true;
         }
     }
 }
