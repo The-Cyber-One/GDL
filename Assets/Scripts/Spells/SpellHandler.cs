@@ -57,9 +57,6 @@ public class SpellHandler : MonoBehaviour
 					var startLife1 = electricPSPlayer1.main;
 					startLife1.startLifetime = 0.8f;
 					break;
-
-				default:
-					break;
 			}
 		}
 		else
