@@ -40,13 +40,12 @@ public class PlayerPickUpItems : MonoBehaviour
         {
             HandleScrolls();
         }
-
     }
 
     private void HandleScrolls()
     {
         //If the player is already holding the item
-        if (Input.GetKeyDown(KeyCode.X) && playerPicksUpItem)
+        if (Input.GetKeyDown(KeyCode.Q) && playerPicksUpItem)
         {
             itemImage = item.GetComponent<Image>();
 
@@ -71,13 +70,13 @@ public class PlayerPickUpItems : MonoBehaviour
 
             item.SetActive(false);
             item = null;
-            pickUp.SetText("Press X to pick up");
+            pickUp.SetText("Press Q to pick up");
             pickUp.enabled = false;
             playerPicksUpItem = false;
 
         }
         //If the player wants to pick up the item
-        else if (Input.GetKeyDown(KeyCode.X) && playerHasCollisionItem)
+        else if (Input.GetKeyDown(KeyCode.Q) && playerHasCollisionItem)
         {
             item.transform.position = transform.position + transform.forward / 2;
 
@@ -86,7 +85,7 @@ public class PlayerPickUpItems : MonoBehaviour
             item.transform.Rotate(new Vector3(0, 90, 90));
 
             item.transform.SetParent(transform);
-            pickUp.SetText("Press X to put away");
+            pickUp.SetText("Press Q to put away");
             playerPicksUpItem = true;
         }
     }
